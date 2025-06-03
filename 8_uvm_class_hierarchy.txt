@@ -1,0 +1,6 @@
+UVM classes have 3 major types :
+
+UVM object
+UVM transaction
+UVM component
+
