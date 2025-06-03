@@ -31,10 +31,36 @@ MSG: A text message
 VERBOSITY: If VERBOSITY is lower than configured verbosity for that reporter, it will be printed.
 Note: `uvm_warning has UVM_NONE as a default verbosity.
 
+uvm_verbosity:
+  UVM defines standard verbosity for report displays. Note : In below , priority order will be from Highest (UVM_NONE) to Lowest (UVM_DEBUG)
 
+Verbosity       | Description    
+ UVM_NONE       | Always printed, verbosity configuration cannot disable it 
+ UVM_LOW        | Prints a message if verbosity is configured as UVM_LOW or above    
+ UVM_MEDIUM     | Prints a message if verbosity is configured as UVM_MEDIUM or above    
+ UVM_HIGH       | Prints a message if verbosity is configured as UVM_HIGH or above   
+ UVM_FULL       | Prints a message if verbosity is configured as UVM_FULL or above    
+ UVM_DEBUG      | Prints a message if verbosity is configured as UVM_DEBUG    
 
+UVM Transaction:
+UVM transaction is used for generating stimulus and its analysis.
+They are transient in nature .The simple transactions can be derived from the uvm_transaction class. 
+But sequence-specific transactions are recommended to derive from uvm_sequence_item.
 
+UVM Components :
+UVM components are used to build a class-based hierarchical structure for the testbench. 
+The uvm_component are static and physical components that exist throughout the simulation. 
+The uvm_component class is a base class for all UVM components.
+For testbench hierarchy, base class components are available in UVM as uvm_env, uvm_agent, uvm_monitor, uvm_driver, uvm_sequencer, etc.
+The uvm_component provides the following interfaces like Hierarchy ,Phasing ,Reporting,Objection , Configuration,Transaction recording ,factory etc
 
+Hierarchy:
+Provides methods for searching and traversing component hierarchy.
+Example:
+get_parent: It returns a handle for the current component’s parent. If it has no parent, then it returns null.
+get_full_name: It returns a complete hierarchical name for this object  
+
+  
 
 
 
