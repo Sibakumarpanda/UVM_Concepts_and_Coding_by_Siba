@@ -24,3 +24,22 @@ set_type_override_by_type , Synatx :  function void set_type_override_by_type (u
 set_type_override_by_name  , Synatx : function void set_type_override_by_name (string original_type_name,
                                                                                string override_type_name,
                                                                                bit replace = 1)
+set_inst_override_by_type , Syntax :  factory.set_inst_override_by_type( original_type::get_type(),  // Original type to override
+                                                                         override_type::get_type(),  // New type to use
+                                                                         "full_or_relative_path",    // Instance path
+                                                                         [parent_component]         // Optional context (for relative paths)
+                                                                         );  
+
+set_inst_override_by_name , Syntax :  factory.set_inst_override_by_name( "original_type_name",      // Original type as string
+                                                                         "override_type_name",      // New type as string
+                                                                         "full_or_relative_path",   // Instance path
+                                                                         [parent_component]         // Optional context (for relative paths)
+                                                                        ); 
+  
+NOTE : To understand the above concepts , Please go through the below examples. It is used with both uvm_object and uvm_component as well. (Examples were committed with this repo using name 10_*)
+  1. set_type_override_by_type.sv
+  2. set_type_override_by_name.sv
+  3. set_inst_override_by_type.sv
+  4. set_inst_override_by_type.sv
+
+  
