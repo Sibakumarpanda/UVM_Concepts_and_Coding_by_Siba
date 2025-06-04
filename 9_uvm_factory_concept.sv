@@ -83,3 +83,47 @@ class my_driver extends uvm_driver;
   ...
 endclass    
   
+3. Component and object creation :
+The create() method of the wrapper class is used to create objects for the uvm_object and uvm_component class.
+The build_phase is used to create component instances and build component hierarchy.
+Since uvm_object is created in the run time, uvm objects are created in the run_phase.
+
+Syntax for Object creation:    <instance_name> = <type>::<type_id>::create("<name>")
+Syntax for Component creation: <instance_name> = <type>::<type_id>::create("<name>", <parent>)  
+
+Example:
+class my_env extends uvm_env;
+  `uvm_component_utils(my_env)
+  mycomponent compA;
+  param_component #(.WIDTH(8), .ID(1)) compB;
+
+  // default constructor for the component that is environment
+  function new(string name = "my_env", uvm_component parent = null)
+    super.new(name, parent);
+  endclass
+
+  //Component Creation will be done in build_phase 
+  function void build_phase(uvm_phase phase);
+    super.build_phase(phase);
+    // component creation
+    compA = mycomponent::type_id::create("compA", this); 
+    compB = param_component #(8, 1)::type_id::create("compB", this); 
+  endfunction
+
+ //Object Creation will be done in run_phase ,since object is created in run time   
+  task run_phase(uvm_phase phase);
+    mysequence seqA;
+    param_sequence #(.WIDTH(8), .ID(1)) seqB;
+
+    // object creation
+    seqA = mysequence::type_id::create("seqA");
+    seqB = param_sequence #(8,1)::type_id::create("seqB");
+    ...
+    ...
+  endtask
+endclass  
+
+Summary : Why is factory registration required?
+In UVM based testbench, it is valid to use a new() function to create class objects, but factory registration has its benefits.
+The UVM factory allows an object of one type to be overridden with an object of its derived type without changing the testbench structure. 
+This is known as the UVM factory override mechanism. This is applicable for uvm objects and components.    
