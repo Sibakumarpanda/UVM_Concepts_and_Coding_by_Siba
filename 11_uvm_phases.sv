@@ -57,5 +57,65 @@ The run_test() method call to construct the UVM environment root component and t
 
   b. Other Phases that run parallel to run_phases (pre_reset, reset, post_reset, pre_configure, configure, post_configure, pre_main, main, post_main, pre_shutdown,shutdown, post_shutdown phases)   
 
+   Phase Name                   |     Description                                                               |          Execution approach           |               Phase Type    
+                                       
+   pre_reset                          Used to add any activity or functionality before reset as                             Parallel                                    Task
+                                      power-up signal goes active   
+                                       
+   reset                              Used to generate a reset and put an interface into its                                Parallel                                    Task
+                                      default state.
+                        
+   post_reset                         Used to add any activity that is required immediately                                 Parallel                                    Task
+                                      after reset
 
-                       
+   pre_configure                      After the reset is completed, this phase is used to prepare DUT for                   Parallel                                    Task
+                                      configuration programming. 
+                                      Ex: It may be used as a last chance to update information before 
+                                      it is passed to the DUT.
+
+   configure                           Used to program the DUT and any memories in the testbench to keep                   Parallel                                    Task
+                                       it ready for the start of the test case.
+
+   post_configure                      Used to wait for the response after configuring DUT or wait for a                   Parallel                                    Task
+                                       certain DUT state so that the main test stimulus can be started.
+
+   pre_main                            Used to ensure that all required components are ready to generate stimulus.         Parallel                                    Task
+
+   main                                Used to apply generated stimulus to the DUT.                                        Parallel                                    Task
+                                       Most of the time, stimuli are handled using sequences. 
+                                       This phase completed either all stimuli are exhausted or a timeout occurred.
+   
+   post_main                           Used to take care of any finalization of the main phase                             Parallel                                    Task
+
+   pre_shutdown                        This phase is a buffer for any DUT stimuli that have to take care before            Parallel                                    Task
+                                       the shutdown phase.
+
+   shutdown                            Used to ensure that the effects of stimuli are driven to DUT during main_phase      Parallel                                    Task
+                                       and that any resultant data has drained away. 
+                                       This phase may also be used to execute any time-consuming sequences 
+                                       that read status registers.  
+
+   post_shutdown                       Used to perform any final activity before existing time-consuming simulation        Parallel                                    Task
+                                       phases.  
+
+4. Clean up phases: The clean-up phases are used to collect information from functional coverage monitors and scoreboards to see whether the coverage goal has been reached or the test case has passed. 
+                    The cleanup phases will start once the run phases are completed. 
+                    They are implemented as functions and work from the bottom to the top of the component hierarchy. 
+                    The extract, check and report phase may be used by analysis components.  
+
+ Phase Name                   |     Description                                                  |          Execution approach           |               Phase Type    
+
+ extract                            Used to retrieve and process the information from functional             Bottom to top                                Function
+                                    coverage monitors and scoreboards. 
+                                    This phase may also calculate any statistical information 
+                                    that will be used by report_phase.
+
+ check                               Checks DUT behavior and identity for any error that occurred            Bottom to top                                Function
+                                     during the execution of the testbench.
+
+ report                              Used to display simulation results.                                     Bottom to top                                Function
+                                     It can also write results to the file.                                   
+
+ final                               Used to complete any outstanding actions that are yet to be             Bottom to top                                Function
+                                     completed in the testbench.  
+     
