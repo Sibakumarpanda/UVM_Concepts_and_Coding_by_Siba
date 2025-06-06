@@ -40,6 +40,8 @@ NOTE : To understand the above concepts , Please go through the below examples. 
   1. set_type_override_by_type.sv
   2. set_type_override_by_name.sv
   3. set_inst_override_by_type.sv
-  4. set_inst_override_by_type.sv
+  4. set_inst_override_by_name.sv
+  5. set_type_override_by_type_with_same_parameter.sv
+  6. set_type_override_by_type_with_different_parameter.sv
 
   
