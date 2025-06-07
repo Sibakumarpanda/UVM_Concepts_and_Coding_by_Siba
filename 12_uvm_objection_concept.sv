@@ -50,5 +50,8 @@ dropped                                                                   Called
 all_dropped                                                               Called when all objections are dropped for this component and its derived classes.
     
 UVM Objections Examples: (Below examples helps to understand intention and it provide clarity for the objection mechanism.Not the full code containing sequnce/sequencer/driver mechanism)
-  1. An objection can be used in the test class component (In the run_phase)
-  2. An objection can be used in the sequence class (Either in body tasks or pre_body/ post_body tasks) 
+  1. An objection can be used in the test class component (In the run_phase, by using phase.raise_objection() and phase.drop_objection()  )
+  2. An objection can be used in the sequence class (Either in body tasks or pre_body/ post_body tasks) as below
+     a. With use of starting_phase.raise_objection(this); and starting_phase.drop_objection(this);  
+     b. With use of set_starting_phase and get_starting_phase methods
+     c. With use of set_automatic_phase_objection method
