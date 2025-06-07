@@ -49,3 +49,6 @@ raised                                                                    Called
 dropped                                                                   Called when an objection is dropped for this component or its derived classes.
 all_dropped                                                               Called when all objections are dropped for this component and its derived classes.
     
+UVM Objections Examples: (Below examples helps to understand intention and it provide clarity for the objection mechanism.Not the full code containing sequnce/sequencer/driver mechanism)
+  1. An objection can be used in the test class component (In the run_phase)
+  2. An objection can be used in the sequence class (Either in body tasks or pre_body/ post_body tasks) 
