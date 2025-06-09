@@ -43,7 +43,32 @@ Syntax with field macros:        `uvm_object_utils_begin(<class_type>)
        `uvm_field_array_enum                                                                Implements data methods for 1D dynamic enum array.
        `uvm_field_array_object                                                              Implements data methods for 1D dynamic uvm_object based object array.
 
+`uvm_field_* macro flags:
+         
+        flag                        |                       Description
+        UVM_DEFAULT                                         Use default flag settings
+        UVM_ALL_ON                                          Set all operations/method ON
+        UVM_NO_COPY                                         Do not copy this field
+        UVM_NOCOMPARE                                       Do not compare this field
+        UVM_NOPRINT                                         Do not print this field
+        UVM_NOPACK                                          Do not pack or unpack this field 
+        UVM_ABSTRACT                                        Use the abstract setting in the policy class for this abstract field.
+        UVM_REFERENCE                                       For object types, operate only on the handle (e.g. no deep copy) 
+        UVM_PHYSICAL                                        Use a physical setting in policy class for this field.
+        UVM_READONLY                                        Do not allow setting of this field from the set_*_local methods or during <apply_config_settings> operation.
 
+
+ NOTE: A radix can be specified for printing and recording by OR’ing one of the following constants in the <flag> argument. 
+       Hex is the default radix for integral types if it is not specified.
+
+        flag                     |                          Description 
+        UVM_BIN                                             Print/record the field in binary (base-2).
+        UVM_HEX                                             Print/record the field in hexadecimal (base-16).
+        UVM_DEC                                             Print/record the field in decimal (base-10).
+        UVM_OCT                                             Print/record the field in octal (base-8).
+        UVM_TIME                                            Print/record the field in time format
+        UVM_STRING                                          Print/record the field in string format
+        UVM_UNSIGNED                                        Print/record the field in unsigned decimal (base-10)
 
 
 
