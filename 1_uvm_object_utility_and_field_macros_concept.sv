@@ -19,16 +19,32 @@ Syntax with field macros:        `uvm_object_utils_begin(<class_type>)
   
 `uvm_field_* macros : The `uvm_field_* macros implement data methods for scalar properties.
 
-    `uvm_field_* macros                   |                                               Description
-
-     `uvm_field_int                                                                       Implements data methods for any packed integral property.
-
+    `uvm_field_* macros                          |                                        Description
+      `uvm_field_int                                                                      Implements data methods for any packed integral property.
       `uvm_field_string                                                                   Implements data methods for a string property.
-
       `uvm_field_real                                                                     Implements data methods for any real property.
-
       `uvm_field_enum                                                                     Implements data methods for an enumerated property.
-
       `uvm_field_event                                                                    Implements data methods for an event property.
-
       `uvm_field_object                                                                   Implements data methods for an uvm_object based property.
+        
+`uvm_field_sarray_* macros : The `uvm_field_sarray* macros implement data methods for one-dimensional static array properties.
+
+   `uvm_field_sarray_* macros                      |                                       Description
+    `uvm_field_sarray_int                                                                  Implements data methods for 1D static integral array.
+    `uvm_field_sarray_string                                                               Implements data methods for 1D static string array.
+    `uvm_field_sarray_enum                                                                 Implements data methods for 1D static enum array. 
+    `uvm_field_sarray_object                                                               Implements data methods for 1D static uvm_object based object array.  
+      
+`uvm_field_array_* macros : The `uvm_field_array* macros implement data methods for one-dimensional dynamic array properties.
+
+   `uvm_field_array_* macros                        |                                       Description
+       `uvm_field_array_int                                                                 Implements data methods for 1D dynamic integral array.  
+       `uvm_field_array_string                                                              Implements data methods for 1D dynamic string array.
+       `uvm_field_array_enum                                                                Implements data methods for 1D dynamic enum array.
+       `uvm_field_array_object                                                              Implements data methods for 1D dynamic uvm_object based object array.
+
+
+
+
+
+         
