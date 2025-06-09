@@ -70,6 +70,49 @@ Syntax with field macros:        `uvm_object_utils_begin(<class_type>)
         UVM_STRING                                          Print/record the field in string format
         UVM_UNSIGNED                                        Print/record the field in unsigned decimal (base-10)
 
+Sample code Template with `uvm_object_utils :
+         
+typedef enum{RED, GREEN, BLUE} color_type;
+          
+class my_object extends uvm_object;
+   int        o_var;
+   string     o_name;  
+   byte       data[4];
+   bit [7:0]  addr;
+   color_type colors;
+  
+  `uvm_object_utils(my_object)
+  
+  function new(string name = "my_object");
+    super.new(name);
+  endfunction
+  
+endclass :my_object   
 
+Sample code Template with `uvm_object_utils_begin and `uvm_object_utils_end  : 
+          
+typedef enum{RED, GREEN, BLUE} color_type;
+          
+class my_object extends uvm_object;
+   rand int        value;  
+   rand byte       data[4];
+   rand bit [7:0]  addr;
+   rand color_type colors;
+   string          names;
+  
+  `uvm_object_utils_begin(my_object)
+    `uvm_field_int(value, UVM_ALL_ON)
+    `uvm_field_string(names, UVM_ALL_ON)
+    `uvm_field_enum(color_type, colors, UVM_ALL_ON)
+    `uvm_field_sarray_int(data, UVM_ALL_ON)
+    `uvm_field_int(addr, UVM_ALL_ON)
+  `uvm_object_utils_end
+  
+  function new(string name = "my_object");
+    super.new(name);
+  endfunction
+  
+endclass :my_object
+          
 
          
