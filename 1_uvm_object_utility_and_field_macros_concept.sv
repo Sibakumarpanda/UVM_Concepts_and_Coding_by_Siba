@@ -114,5 +114,17 @@ class my_object extends uvm_object;
   
 endclass :my_object
           
-
-         
+NOTE: To understand this concept in deep, we can go through below mentioned code examples. All are present in this repo.
+ 1.   1_print_method_with_and_without_field_macro_example.sv
+ 2.   1_create_and_print_method.sv  
+ 3.   2_copy_method.sv
+ 4.   2_copy_method_with_and_without_field_macro_example.sv
+ 5.   3_clone_method.sv
+ 6.   3_clone_method_with_and_without_field_macro_example.sv
+ 7.   4_compare_method.sv
+ 8.   4_compare_method_with_and_without_field_macro_example.sv
+ 9.   5_pack_unpack_to_array_with_without_field_macro_example.sv
+ 10.  5_pack_unpack_to_array_of_bit_type.sv
+ 11.  6_pack_unpack_to_array_of_byte_type.sv
+ 12.  7_pack_unpack_to_array_of_int_type.sv
+          
