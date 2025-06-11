@@ -22,9 +22,9 @@ To run the UVM code examples in this repository, you can use **EDA Playground**,
 
 The code will execute on the platform, and you can view the simulation results in the output section.
 
-## About Content of this Repository
+## Content of this Repository
 
-This repository contains the UVM verification Concepts , code examples and methodologies as per below Outline . 
+This repository contains the UVM verification Concepts , code examples with complete understanding as per below Outline . 
 
 **1. UVM Class Hierarchy**
 
