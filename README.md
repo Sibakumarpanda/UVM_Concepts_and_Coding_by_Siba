@@ -37,3 +37,11 @@ This repository contains the UVM verification Concepts , code examples and metho
 **-Instance Override**
 
 **-Object Overriding**
+
+**4 .UVM Phase Concepts - Its Need, Types of Phases with understanding**
+
+**5 .UVM Objections - Concept of raise_objection and drop_objection**
+
+**6 .UVM Objects - Concept of utility macro and Field macros with create, print,copy,clone,compare,pack,unpack methods**
+
+**7 .UVM Config_db and resource_db**
