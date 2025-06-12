@@ -43,4 +43,13 @@ Resource database organization :
 -The resource is stored in the ‘name table’ by name and in the ‘type table’ by type handle. 
 -Both the name and queue table has a queue associated with them.
 -If more than one resource has the same name or type, it is stored in the corresponding queue.
+-We can do the operation/play with the resource DB in three ways : Addding , searching , Auditing . We will see what is mean by Adding ? Searching ? Auditing ? in below .
+
+Adding resource entry in the database: 
+-Check for the name in the name table. 
+-If it exists, insert resource handle into a queue based on queue handle, otherwise create a new queue for that name to put resource handle
+-Similarly, check for the type handle in the type table. 
+-If it exists, insert a resource handle into a queue based on the queue handle, otherwise create a new queue for that type to put a resource handle.  
+
+Searching resource in the database:
 
