@@ -43,7 +43,9 @@ Resource database organization :
 -The resource is stored in the ‘name table’ by name and in the ‘type table’ by type handle. 
 -Both the name and queue table has a queue associated with them.
 -If more than one resource has the same name or type, it is stored in the corresponding queue.
--We can do the operation/play with the resource DB in three ways : Addding , searching , Auditing . We will see what is mean by Adding ? Searching ? Auditing ? in below .
+-We can do the operation/play with the resource DB in three ways : 
+      Addding , searching , Auditing . 
+-We will see what is mean by Adding ? Searching ? Auditing ? in below .
 
 Adding resource entry in the database: 
 -Check for the name in the name table. 
@@ -52,4 +54,29 @@ Adding resource entry in the database:
 -If it exists, insert a resource handle into a queue based on the queue handle, otherwise create a new queue for that type to put a resource handle.  
 
 Searching resource in the database:
-
+The searching in the resource database depends on below-
+  1. Looking up for a resource by name or by type.
+  2. Precedence of the resource
+  3. The order in which resource was added in the queue.
+  
+Search steps-
+  1.The resource is located in the database by resource name, type, and scope. The scope represents a string that initiates the resource search. 
+  2.For name-based search, the resource name is used to locate the queue in the name table which contains a set of resources with the same name. 
+  3.If the queue is empty (i.e. no resource available in the queue) results in search fail and return null.
+  4.If the queue is non-empty, then the queue is traversed from the back for each resource available in the queue. Based on the precedence value for the resource available in the current scope, it returns the target resource. If more resources have the same precedence value then the target resource will be the earliest in the queue.
+  5.If the queue is non-empty and the target resource is not found in the queue, results in search fail and return null.
+  6.For type-based search, the same steps are followed.
+    
+Auditing:
+-The auditing capability in the resource database is used to track activity during the execution. 
+-Auditing collects two sets of information.
+    (a). A set of access records
+    (b). A set of collected information as to get records
+-A set of access records: Each resource is accessed by either read or write. 
+                          For each time resource access is made, the accessor is given by the user. 
+                          Typically, it is given as ‘this’. The auditing facility in uvm resource provides facilities 
+                          To store time for last read, last write, number of reads, number of writes.
+                          To track the name of an object from which the resource was accessed.
+-A set of collected information to get records: The record has information about the name of the object being looked up, time of the lookup, the resource handle and the supplied scope information. 
+                                                This information is helpful to determine whether the testbench is configured properly or not. 
+                                                This information is typically dumped at the end of the simulation.
