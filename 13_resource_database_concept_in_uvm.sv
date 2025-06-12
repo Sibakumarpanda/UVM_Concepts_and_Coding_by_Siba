@@ -36,3 +36,11 @@ endclass
 -The variable default_precedence is used to set the default precedence value initially i.e. 1000. 
 -It is allowed to change the precedence value. When two resources have the same precedence, the first resource found has a priority.
   
+Resource database organization :
+-The resource database is also known as the resource pool.  
+-The resource database consists of a pair of associative array names as ‘name table’ and ‘type table’. 
+-The ‘name table’ and ‘type table’ are alternatively known as ‘name map’ and ‘type map’. 
+-The resource is stored in the ‘name table’ by name and in the ‘type table’ by type handle. 
+-Both the name and queue table has a queue associated with them.
+-If more than one resource has the same name or type, it is stored in the corresponding queue.
+
