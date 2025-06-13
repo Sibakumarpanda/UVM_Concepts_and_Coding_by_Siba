@@ -33,3 +33,12 @@ class uvm_resource_db #(type T=uvm_object);
   ...
   ...
 endclass  
+
+uvm_resource_db methods : (All are static functions)
+
+  Methods                                                              |             Description
+  
+  get_by_name(string scope, string name, bit rpterr=1)                               Get a resource by using both scope and name arguments. 
+                                                                                     The rpterr argument indicates whether to generate a warning or not if a resource match is not found.  
+                                                                                      
+                                                                                       
