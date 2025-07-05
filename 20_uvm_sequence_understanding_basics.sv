@@ -1,4 +1,3 @@
-
 UVM Sequence understanding:
 -UVM sequence is a container that holds data items (uvm_sequence_items) which are sent to the driver via the sequencer.
 -Note: uvm_sequence class is parameterized with uvm_sequence_item.
@@ -41,6 +40,29 @@ endclass
 
 What is the body() method and its uses/functionality in sequence ? 
   
-  
-  
-  
+-The operation which is intended to do by sequence is defined inside a body method.
+-Along with a body() method,  pre_body, and post_body methods are called by default.
+-These pre_body and post_body tasks are additional (can be named as callbacks) which are useful to perform any operation before and after the execution of the body() method. 
+-pre_body() and post_body() methods are optional. 
+
+// Sequence sample code Snippet:  
+class my_sequence extends uvm_sequence #(my_seq_item);
+  `uvm_object_utils(my_sequence)
+
+  function new(string name = "my_sequnce");
+    super.new(name);
+  endfunction
+
+  task pre_body();
+    ...
+  endtask
+
+  task body();
+    ...
+  endtask
+
+  task post_body();
+    ...
+  endtask
+endclass :my_sequence
+NOTE: On next , it is very important to know How to write a sequence ? 
