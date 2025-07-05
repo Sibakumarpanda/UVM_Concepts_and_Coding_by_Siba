@@ -19,11 +19,11 @@ How to write the driver code?
 -Implement run_phase to get the sequence items and drive them to the DUT using a virtual interface handle.  
 
 //UVM Driver Sample code Snippet :
-class driver extends uvm_driver#(seq_item);
+class my_driver extends uvm_driver#(seq_item);
   virtual add_if vif;
-  `uvm_component_utils(driver)
+  `uvm_component_utils(my_driver)
   
-  function new(string name = "driver", uvm_component parent = null);
+  function new(string name = "my_driver", uvm_component parent = null);
     super.new(name, parent);
   endfunction
   
@@ -36,7 +36,7 @@ class driver extends uvm_driver#(seq_item);
   task run_phase (uvm_phase phase);
     // Get the sequence_item and drive it to DUT
   endtask
-endclass
+endclass :my_driver
   
 
 
