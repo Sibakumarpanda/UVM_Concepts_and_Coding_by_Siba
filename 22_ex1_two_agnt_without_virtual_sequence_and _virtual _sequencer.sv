@@ -1,4 +1,4 @@
-//Example1: Example of without using Virtual Sequence and Sequencer concept
+//Example1: Example of Two agent uses without using Virtual Sequence and Sequencer concept
 
 //seq_item class
 class seq_item extends uvm_sequence_item;
