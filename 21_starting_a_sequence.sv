@@ -31,13 +31,30 @@ task                                         pre_body                           
 task                                         pre_do                                           It is a user-definable callback task that is called on parent sequence (if any) before the item is 
                                                                                               randomized and after sequence has issued wait_for_grant() call.
 
+function                                     mid_do                                           It is a user-definable callback function that is called after the sequence item is randomized, 
+                                                                                              and just before the item is sent to the driver.
+  
+task                                         body                                             It is a user-defined task to write main sequence code.
 
+function                                     post_do                                          It is a user-definable callback function that is called after completing the item using either put or item_done methods.
 
-
-
-
-
-
+task                                         post_body                                        It is a user-definable callback task that is called after the execution of the body only when the sequence 
+                                                                                              is started with the start method.
+  
+task                                         post_start                                       It is a user-definable callback that is called after the optional execution of the post_body task.
+  
+-Note: mid_do and post_do are functions and other methods are tasks.
+-The pre_start and post_start methods are always called.
+-The start method call follows the below sequence:
+  
+sub_seq.pre_start()        
+sub_seq.pre_body()          if call_pre_post==1 
+  parent_seq.pre_do(0)      if parent_sequence!=null 
+  parent_seq.mid_do(this)   if parent_sequence!=null
+sub_seq.body                YOUR STIMULUS CODE 
+  parent_seq.post_do(this)  if parent_sequence!=null 
+sub_seq.post_body()         if call_pre_post==1 
+sub_seq.post_start()
 
 
 
