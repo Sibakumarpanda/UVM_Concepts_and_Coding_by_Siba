@@ -21,3 +21,24 @@ virtual task start ( uvm_sequencer_base sequencer,
    assert(child_seq.randomize());
    child_seq.start(seqr, parent_seq, priority, call_pre_post);  
 -The following methods are called during sequence execution via the start method:  
+
+Method type                                  Methods                                          Description
+
+task                                         pre_start                                        It is a user-definable callback that is called before the optional execution of the pre_body task.  
+
+task                                         pre_body                                         It is a user-definable callback that is called before the execution of body only when the sequence is started with start.
+
+task                                         pre_do                                           It is a user-definable callback task that is called on parent sequence (if any) before the item is 
+                                                                                              randomized and after sequence has issued wait_for_grant() call.
+
+
+
+
+
+
+
+
+
+
+
+  
