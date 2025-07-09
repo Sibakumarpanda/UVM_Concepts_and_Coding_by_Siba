@@ -36,8 +36,10 @@ user_priority_arbitration :
 -Decleration :  virtual function integer user_priority_arbitration(integer avail_sequences[$]) 
 
 Examples to understand Sequencer Arbitration Mode:
+ 
  1. Different arbitration mode execution (Without any priority to the sequencer - Controlled in my_base_test)
-     Link:
+     Link: https://github.com/Sibakumarpanda/UVM_Concepts_and_Coding_by_Siba/blob/main/22_Arbitration_in_sequencer_ex1_without_any_priority.sv
+ 
  2. Different arbitration mode execution (With priority to the sequencer - Controlled in my_base_test) 
-     Link: 
+     Link: https://github.com/Sibakumarpanda/UVM_Concepts_and_Coding_by_Siba/blob/main/22_Arbitration_in_sequencer_ex2_with_priority.sv
  
