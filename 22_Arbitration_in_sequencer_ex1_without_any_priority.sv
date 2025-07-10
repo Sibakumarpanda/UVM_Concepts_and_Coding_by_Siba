@@ -637,4 +637,268 @@ Done
       
 3. +UVM_TESTNAME = my_seq_arb_random_test , means here Arbitration mode set as UVM_SEQ_ARB_RANDOM (with out any Priority set)
       
-Log File Output :      
+Log File Output :  
+
+Starting vcs inline pass...
+
+5 modules and 0 UDP read.
+recompiling package vcs_paramclassrepository
+recompiling package _vcs_DPI_package
+recompiling package uvm_pkg
+recompiling package my_package
+recompiling module tb_top
+All of 5 modules done
+rm -f _cuarc*.so _csrc*.so pre_vcsobj_*.so share_vcsobj_*.so
+g++ -w  -pipe -fPIC -DVCS -O -I/apps/vcsmx/vcs/U-2023.03-SP2/include    -c /apps/vcsmx/vcs/U-2023.03-SP2//etc/uvm-1.2/src/dpi/uvm_dpi.cc
+gcc  -w  -pipe -fPIC -DVCS -O -I/apps/vcsmx/vcs/U-2023.03-SP2/include    -fPIC -c -o uM9F1_0x2aB.o uM9F1_0x2aB.c
+if [ -x ../simv ]; then chmod a-x ../simv; fi
+g++  -o ../simv      -rdynamic  -Wl,-rpath='$ORIGIN'/simv.daidir -Wl,-rpath=./simv.daidir -Wl,-rpath=/apps/vcsmx/vcs/U-2023.03-SP2/linux64/lib -L/apps/vcsmx/vcs/U-2023.03-SP2/linux64/lib  -Wl,-rpath-link=./  uvm_dpi.o   objs/amcQw_d.o   _425_archive_1.so   SIM_l.o    uM9F1_0x2aB.o   rmapats_mop.o rmapats.o rmar.o rmar_nd.o  rmar_llvm_0_1.o rmar_llvm_0_0.o            -lvirsim -lerrorinf -lsnpsmalloc -lvfs    -lvcsnew -lsimprofile -luclinative /apps/vcsmx/vcs/U-2023.03-SP2/linux64/lib/vcs_tls.o   -Wl,-whole-archive  -lvcsucli    -Wl,-no-whole-archive       ./../simv.daidir/vc_hdrs.o    /apps/vcsmx/vcs/U-2023.03-SP2/linux64/lib/vcs_save_restore_new.o -ldl  -lc -lm -lpthread -ldl 
+../simv up to date
+CPU time: 8.712 seconds to compile + .317 seconds to elab + .623 seconds to link
+Chronologic VCS simulator copyright 1991-2023
+Contains Synopsys proprietary information.
+Compiler version U-2023.03-SP2_Full64; Runtime version U-2023.03-SP2_Full64;  Jul 10 00:31 2025
+UVM_INFO /apps/vcsmx/vcs/U-2023.03-SP2//etc/uvm-1.2/src/base/uvm_root.svh(402) @ 0: reporter [UVM/RELNOTES] 
+----------------------------------------------------------------
+UVM-1.2.Synopsys
+(C) 2007-2014 Mentor Graphics Corporation
+(C) 2007-2014 Cadence Design Systems, Inc.
+(C) 2006-2014 Synopsys, Inc.
+(C) 2011-2013 Cypress Semiconductor Corp.
+(C) 2013-2014 NVIDIA Corporation
+----------------------------------------------------------------
+
+  ***********       IMPORTANT RELEASE NOTES         ************
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+  See http://www.eda.org/svdb/view.php?id=3313 for more details.
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_OBJECT_DO_NOT_NEED_CONSTRUCTOR undefined.
+  See http://www.eda.org/svdb/view.php?id=3770 for more details.
+
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+
+UVM_INFO @ 0: reporter [RNTST] Running test my_seq_arb_random_test...
+UVM_INFO my_seq_arb_random_test.sv(21) @ 0: uvm_test_top [my_seq_arb_random_test] Running the my_seq_arb_random_test 
+UVM_INFO my_base_test.sv(36) @ 0: uvm_test_top [uvm_test_top] Arbitration mode = UVM_SEQ_ARB_RANDOM
+UVM_INFO my_sequence.sv(23) @ 0: uvm_test_top.env_o.my_agt.seqr@@seq[0] [my_sequence] Inside body task
+UVM_INFO my_sequence.sv(23) @ 0: uvm_test_top.env_o.my_agt.seqr@@seq[1] [my_sequence] Inside body task
+UVM_INFO my_sequence.sv(23) @ 0: uvm_test_top.env_o.my_agt.seqr@@seq[2] [my_sequence] Inside body task
+UVM_INFO my_sequence.sv(23) @ 0: uvm_test_top.env_o.my_agt.seqr@@seq[3] [my_sequence] Inside body task
+UVM_INFO my_sequence.sv(23) @ 0: uvm_test_top.env_o.my_agt.seqr@@seq[4] [my_sequence] Inside body task
+UVM_INFO my_driver.sv(29) @ 50: uvm_test_top.env_o.my_agt.drv [drv] addr = 252f and data = e872
+UVM_INFO my_sequence.sv(29) @ 50: uvm_test_top.env_o.my_agt.seqr@@seq[2] [my_sequence] Completed body task
+UVM_INFO my_driver.sv(29) @ 100: uvm_test_top.env_o.my_agt.drv [drv] addr = c6ed and data = c7af
+UVM_INFO my_sequence.sv(29) @ 100: uvm_test_top.env_o.my_agt.seqr@@seq[1] [my_sequence] Completed body task
+UVM_INFO my_driver.sv(29) @ 150: uvm_test_top.env_o.my_agt.drv [drv] addr = 40cc and data = 37af
+UVM_INFO my_sequence.sv(29) @ 150: uvm_test_top.env_o.my_agt.seqr@@seq[3] [my_sequence] Completed body task
+UVM_INFO my_driver.sv(29) @ 200: uvm_test_top.env_o.my_agt.drv [drv] addr = 76b4 and data = 6d4f
+UVM_INFO my_sequence.sv(29) @ 200: uvm_test_top.env_o.my_agt.seqr@@seq[4] [my_sequence] Completed body task
+UVM_INFO my_driver.sv(29) @ 250: uvm_test_top.env_o.my_agt.drv [drv] addr = f92d and data = 1d95
+UVM_INFO my_sequence.sv(29) @ 250: uvm_test_top.env_o.my_agt.seqr@@seq[0] [my_sequence] Completed body task
+UVM_INFO /apps/vcsmx/vcs/U-2023.03-SP2//etc/uvm-1.2/src/base/uvm_objection.svh(1276) @ 250: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+UVM_INFO /apps/vcsmx/vcs/U-2023.03-SP2//etc/uvm-1.2/src/base/uvm_report_server.svh(904) @ 250: reporter [UVM/REPORT/SERVER] 
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :   20
+UVM_WARNING :    0
+UVM_ERROR :    0
+UVM_FATAL :    0
+** Report counts by id
+[RNTST]     1
+[TEST_DONE]     1
+[UVM/RELNOTES]     1
+[drv]     5
+[my_seq_arb_random_test]     1
+[my_sequence]    10
+[uvm_test_top]     1
+
+$finish called from file "/apps/vcsmx/vcs/U-2023.03-SP2//etc/uvm-1.2/src/base/uvm_root.svh", line 527.
+$finish at simulation time                  250
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 250 ns
+CPU Time:      0.370 seconds;       Data structure size:   0.3Mb
+Thu Jul 10 00:31:33 2025
+Done
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+       
+4. +UVM_TESTNAME = my_seq_arb_strict_fifo_test , means here Arbitration mode set as UVM_SEQ_ARB_STRICT_FIFO (with out any Priority set)
+      
+Log File Output :
+Starting vcs inline pass...
+
+5 modules and 0 UDP read.
+recompiling package vcs_paramclassrepository
+recompiling package _vcs_DPI_package
+recompiling package uvm_pkg
+recompiling package my_package
+recompiling module tb_top
+All of 5 modules done
+rm -f _cuarc*.so _csrc*.so pre_vcsobj_*.so share_vcsobj_*.so
+g++ -w  -pipe -fPIC -DVCS -O -I/apps/vcsmx/vcs/U-2023.03-SP2/include    -c /apps/vcsmx/vcs/U-2023.03-SP2//etc/uvm-1.2/src/dpi/uvm_dpi.cc
+gcc  -w  -pipe -fPIC -DVCS -O -I/apps/vcsmx/vcs/U-2023.03-SP2/include    -fPIC -c -o uM9F1_0x2aB.o uM9F1_0x2aB.c
+if [ -x ../simv ]; then chmod a-x ../simv; fi
+g++  -o ../simv      -rdynamic  -Wl,-rpath='$ORIGIN'/simv.daidir -Wl,-rpath=./simv.daidir -Wl,-rpath=/apps/vcsmx/vcs/U-2023.03-SP2/linux64/lib -L/apps/vcsmx/vcs/U-2023.03-SP2/linux64/lib  -Wl,-rpath-link=./  uvm_dpi.o   objs/amcQw_d.o   _425_archive_1.so   SIM_l.o    uM9F1_0x2aB.o   rmapats_mop.o rmapats.o rmar.o rmar_nd.o  rmar_llvm_0_1.o rmar_llvm_0_0.o            -lvirsim -lerrorinf -lsnpsmalloc -lvfs    -lvcsnew -lsimprofile -luclinative /apps/vcsmx/vcs/U-2023.03-SP2/linux64/lib/vcs_tls.o   -Wl,-whole-archive  -lvcsucli    -Wl,-no-whole-archive       ./../simv.daidir/vc_hdrs.o    /apps/vcsmx/vcs/U-2023.03-SP2/linux64/lib/vcs_save_restore_new.o -ldl  -lc -lm -lpthread -ldl 
+../simv up to date
+CPU time: 8.908 seconds to compile + .286 seconds to elab + .560 seconds to link
+Chronologic VCS simulator copyright 1991-2023
+Contains Synopsys proprietary information.
+Compiler version U-2023.03-SP2_Full64; Runtime version U-2023.03-SP2_Full64;  Jul 10 00:34 2025
+UVM_INFO /apps/vcsmx/vcs/U-2023.03-SP2//etc/uvm-1.2/src/base/uvm_root.svh(402) @ 0: reporter [UVM/RELNOTES] 
+----------------------------------------------------------------
+UVM-1.2.Synopsys
+(C) 2007-2014 Mentor Graphics Corporation
+(C) 2007-2014 Cadence Design Systems, Inc.
+(C) 2006-2014 Synopsys, Inc.
+(C) 2011-2013 Cypress Semiconductor Corp.
+(C) 2013-2014 NVIDIA Corporation
+----------------------------------------------------------------
+
+  ***********       IMPORTANT RELEASE NOTES         ************
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+  See http://www.eda.org/svdb/view.php?id=3313 for more details.
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_OBJECT_DO_NOT_NEED_CONSTRUCTOR undefined.
+  See http://www.eda.org/svdb/view.php?id=3770 for more details.
+
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+
+UVM_INFO @ 0: reporter [RNTST] Running test my_seq_arb_strict_fifo_test...
+UVM_INFO my_seq_arb_strict_fifo_test.sv(22) @ 0: uvm_test_top [my_seq_arb_strict_fifo_test] Running the my_seq_arb_strict_fifo_test 
+UVM_INFO my_base_test.sv(36) @ 0: uvm_test_top [uvm_test_top] Arbitration mode = UVM_SEQ_ARB_STRICT_FIFO
+UVM_INFO my_sequence.sv(23) @ 0: uvm_test_top.env_o.my_agt.seqr@@seq[0] [my_sequence] Inside body task
+UVM_INFO my_sequence.sv(23) @ 0: uvm_test_top.env_o.my_agt.seqr@@seq[1] [my_sequence] Inside body task
+UVM_INFO my_sequence.sv(23) @ 0: uvm_test_top.env_o.my_agt.seqr@@seq[2] [my_sequence] Inside body task
+UVM_INFO my_sequence.sv(23) @ 0: uvm_test_top.env_o.my_agt.seqr@@seq[3] [my_sequence] Inside body task
+UVM_INFO my_sequence.sv(23) @ 0: uvm_test_top.env_o.my_agt.seqr@@seq[4] [my_sequence] Inside body task
+UVM_INFO my_driver.sv(29) @ 50: uvm_test_top.env_o.my_agt.drv [drv] addr = f92d and data = 1d95
+UVM_INFO my_sequence.sv(29) @ 50: uvm_test_top.env_o.my_agt.seqr@@seq[0] [my_sequence] Completed body task
+UVM_INFO my_driver.sv(29) @ 100: uvm_test_top.env_o.my_agt.drv [drv] addr = c6ed and data = c7af
+UVM_INFO my_sequence.sv(29) @ 100: uvm_test_top.env_o.my_agt.seqr@@seq[1] [my_sequence] Completed body task
+UVM_INFO my_driver.sv(29) @ 150: uvm_test_top.env_o.my_agt.drv [drv] addr = 252f and data = e872
+UVM_INFO my_sequence.sv(29) @ 150: uvm_test_top.env_o.my_agt.seqr@@seq[2] [my_sequence] Completed body task
+UVM_INFO my_driver.sv(29) @ 200: uvm_test_top.env_o.my_agt.drv [drv] addr = 40cc and data = 37af
+UVM_INFO my_sequence.sv(29) @ 200: uvm_test_top.env_o.my_agt.seqr@@seq[3] [my_sequence] Completed body task
+UVM_INFO my_driver.sv(29) @ 250: uvm_test_top.env_o.my_agt.drv [drv] addr = 76b4 and data = 6d4f
+UVM_INFO my_sequence.sv(29) @ 250: uvm_test_top.env_o.my_agt.seqr@@seq[4] [my_sequence] Completed body task
+UVM_INFO /apps/vcsmx/vcs/U-2023.03-SP2//etc/uvm-1.2/src/base/uvm_objection.svh(1276) @ 250: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+UVM_INFO /apps/vcsmx/vcs/U-2023.03-SP2//etc/uvm-1.2/src/base/uvm_report_server.svh(904) @ 250: reporter [UVM/REPORT/SERVER] 
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :   20
+UVM_WARNING :    0
+UVM_ERROR :    0
+UVM_FATAL :    0
+** Report counts by id
+[RNTST]     1
+[TEST_DONE]     1
+[UVM/RELNOTES]     1
+[drv]     5
+[my_seq_arb_strict_fifo_test]     1
+[my_sequence]    10
+[uvm_test_top]     1
+
+$finish called from file "/apps/vcsmx/vcs/U-2023.03-SP2//etc/uvm-1.2/src/base/uvm_root.svh", line 527.
+$finish at simulation time                  250
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 250 ns
+CPU Time:      0.330 seconds;       Data structure size:   0.3Mb
+Thu Jul 10 00:34:07 2025
+Done
+ 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+       
+5. +UVM_TESTNAME = my_seq_arb_strict_random_test , means here Arbitration mode set as UVM_SEQ_ARB_STRICT_RANDOM (with out any Priority set)
+      
+Log File Output : 
+Starting vcs inline pass...
+
+5 modules and 0 UDP read.
+recompiling package vcs_paramclassrepository
+recompiling package _vcs_DPI_package
+recompiling package uvm_pkg
+recompiling package my_package
+recompiling module tb_top
+All of 5 modules done
+rm -f _cuarc*.so _csrc*.so pre_vcsobj_*.so share_vcsobj_*.so
+g++ -w  -pipe -fPIC -DVCS -O -I/apps/vcsmx/vcs/U-2023.03-SP2/include    -c /apps/vcsmx/vcs/U-2023.03-SP2//etc/uvm-1.2/src/dpi/uvm_dpi.cc
+gcc  -w  -pipe -fPIC -DVCS -O -I/apps/vcsmx/vcs/U-2023.03-SP2/include    -fPIC -c -o uM9F1_0x2aB.o uM9F1_0x2aB.c
+if [ -x ../simv ]; then chmod a-x ../simv; fi
+g++  -o ../simv      -rdynamic  -Wl,-rpath='$ORIGIN'/simv.daidir -Wl,-rpath=./simv.daidir -Wl,-rpath=/apps/vcsmx/vcs/U-2023.03-SP2/linux64/lib -L/apps/vcsmx/vcs/U-2023.03-SP2/linux64/lib  -Wl,-rpath-link=./  uvm_dpi.o   objs/amcQw_d.o   _425_archive_1.so   SIM_l.o    uM9F1_0x2aB.o   rmapats_mop.o rmapats.o rmar.o rmar_nd.o  rmar_llvm_0_1.o rmar_llvm_0_0.o            -lvirsim -lerrorinf -lsnpsmalloc -lvfs    -lvcsnew -lsimprofile -luclinative /apps/vcsmx/vcs/U-2023.03-SP2/linux64/lib/vcs_tls.o   -Wl,-whole-archive  -lvcsucli    -Wl,-no-whole-archive       ./../simv.daidir/vc_hdrs.o    /apps/vcsmx/vcs/U-2023.03-SP2/linux64/lib/vcs_save_restore_new.o -ldl  -lc -lm -lpthread -ldl 
+../simv up to date
+CPU time: 9.293 seconds to compile + .316 seconds to elab + .588 seconds to link
+Chronologic VCS simulator copyright 1991-2023
+Contains Synopsys proprietary information.
+Compiler version U-2023.03-SP2_Full64; Runtime version U-2023.03-SP2_Full64;  Jul 10 00:35 2025
+UVM_INFO /apps/vcsmx/vcs/U-2023.03-SP2//etc/uvm-1.2/src/base/uvm_root.svh(402) @ 0: reporter [UVM/RELNOTES] 
+----------------------------------------------------------------
+UVM-1.2.Synopsys
+(C) 2007-2014 Mentor Graphics Corporation
+(C) 2007-2014 Cadence Design Systems, Inc.
+(C) 2006-2014 Synopsys, Inc.
+(C) 2011-2013 Cypress Semiconductor Corp.
+(C) 2013-2014 NVIDIA Corporation
+----------------------------------------------------------------
+
+  ***********       IMPORTANT RELEASE NOTES         ************
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+  See http://www.eda.org/svdb/view.php?id=3313 for more details.
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_OBJECT_DO_NOT_NEED_CONSTRUCTOR undefined.
+  See http://www.eda.org/svdb/view.php?id=3770 for more details.
+
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+
+UVM_INFO @ 0: reporter [RNTST] Running test my_seq_arb_strict_random_test...
+UVM_INFO my_seq_arb_strict_random_test.sv(21) @ 0: uvm_test_top [my_seq_arb_strict_random_test] Running the my_seq_arb_strict_random_test 
+UVM_INFO my_base_test.sv(36) @ 0: uvm_test_top [uvm_test_top] Arbitration mode = UVM_SEQ_ARB_STRICT_RANDOM
+UVM_INFO my_sequence.sv(23) @ 0: uvm_test_top.env_o.my_agt.seqr@@seq[0] [my_sequence] Inside body task
+UVM_INFO my_sequence.sv(23) @ 0: uvm_test_top.env_o.my_agt.seqr@@seq[1] [my_sequence] Inside body task
+UVM_INFO my_sequence.sv(23) @ 0: uvm_test_top.env_o.my_agt.seqr@@seq[2] [my_sequence] Inside body task
+UVM_INFO my_sequence.sv(23) @ 0: uvm_test_top.env_o.my_agt.seqr@@seq[3] [my_sequence] Inside body task
+UVM_INFO my_sequence.sv(23) @ 0: uvm_test_top.env_o.my_agt.seqr@@seq[4] [my_sequence] Inside body task
+UVM_INFO my_driver.sv(29) @ 50: uvm_test_top.env_o.my_agt.drv [drv] addr = 252f and data = e872
+UVM_INFO my_sequence.sv(29) @ 50: uvm_test_top.env_o.my_agt.seqr@@seq[2] [my_sequence] Completed body task
+UVM_INFO my_driver.sv(29) @ 100: uvm_test_top.env_o.my_agt.drv [drv] addr = c6ed and data = c7af
+UVM_INFO my_sequence.sv(29) @ 100: uvm_test_top.env_o.my_agt.seqr@@seq[1] [my_sequence] Completed body task
+UVM_INFO my_driver.sv(29) @ 150: uvm_test_top.env_o.my_agt.drv [drv] addr = 40cc and data = 37af
+UVM_INFO my_sequence.sv(29) @ 150: uvm_test_top.env_o.my_agt.seqr@@seq[3] [my_sequence] Completed body task
+UVM_INFO my_driver.sv(29) @ 200: uvm_test_top.env_o.my_agt.drv [drv] addr = 76b4 and data = 6d4f
+UVM_INFO my_sequence.sv(29) @ 200: uvm_test_top.env_o.my_agt.seqr@@seq[4] [my_sequence] Completed body task
+UVM_INFO my_driver.sv(29) @ 250: uvm_test_top.env_o.my_agt.drv [drv] addr = f92d and data = 1d95
+UVM_INFO my_sequence.sv(29) @ 250: uvm_test_top.env_o.my_agt.seqr@@seq[0] [my_sequence] Completed body task
+UVM_INFO /apps/vcsmx/vcs/U-2023.03-SP2//etc/uvm-1.2/src/base/uvm_objection.svh(1276) @ 250: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+UVM_INFO /apps/vcsmx/vcs/U-2023.03-SP2//etc/uvm-1.2/src/base/uvm_report_server.svh(904) @ 250: reporter [UVM/REPORT/SERVER] 
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :   20
+UVM_WARNING :    0
+UVM_ERROR :    0
+UVM_FATAL :    0
+** Report counts by id
+[RNTST]     1
+[TEST_DONE]     1
+[UVM/RELNOTES]     1
+[drv]     5
+[my_seq_arb_strict_random_test]     1
+[my_sequence]    10
+[uvm_test_top]     1
+
+$finish called from file "/apps/vcsmx/vcs/U-2023.03-SP2//etc/uvm-1.2/src/base/uvm_root.svh", line 527.
+$finish at simulation time                  250
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 250 ns
+CPU Time:      0.320 seconds;       Data structure size:   0.3Mb
+Thu Jul 10 00:35:30 2025
+Done 
