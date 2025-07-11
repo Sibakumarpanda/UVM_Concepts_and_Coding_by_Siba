@@ -53,7 +53,7 @@ Note:
 -Hence, the grab request is serviced immediately as compared to the lock request if the arbitration queue has intermediate pending requests.  
 -Please check below to examples for more understanding.
   1. Lock and unlock methods example
-     Link :
+     Link : https://github.com/Sibakumarpanda/UVM_Concepts_and_Coding_by_Siba/blob/main/22_uvm_sequencer_lock_unlock_method_example.sv
   2. Grab and ungrab methods example
-     Link :
+     Link : https://github.com/Sibakumarpanda/UVM_Concepts_and_Coding_by_Siba/blob/main/22_uvm_sequencer_grab_ungrab_method_example.sv
    
