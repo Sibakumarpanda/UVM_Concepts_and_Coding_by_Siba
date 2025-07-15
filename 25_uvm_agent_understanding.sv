@@ -33,10 +33,10 @@ How to configure the agent as an active or passive agent???
 -The set_config_int method is deprecated in uvm1.2. If you run code with uvm1.2, following UVM_WARNING is expected.
    UVM_WARNING: uvm_test_top.env_o [UVM/CFG/SET/DPR] get/set_config_* API has been deprecated. Use uvm_config_db instead.
 - For better understanding , an example is created in below link ,
-     Link:
+      Link: https://github.com/Sibakumarpanda/UVM_Concepts_and_Coding_by_Siba/blob/main/25_ex1_uvm_agent_active_passive_config_with_set_config_int.sv
 
 2. configure agent type with uvm_config_db  
-     Link:
+      Link: https://github.com/Sibakumarpanda/UVM_Concepts_and_Coding_by_Siba/blob/main/25_ex2_uvm_agent_active_passive_config_with_uvm_config_db.sv
 
 How does the user-defined agent know whether it is an active or passive agent?
 
