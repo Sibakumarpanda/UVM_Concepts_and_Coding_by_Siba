@@ -24,10 +24,8 @@ How to configure the agent as an active or passive agent???
    1. configure agent type with set_config_int
    2. configure agent type with uvm_config_db
    3. Configuring user-defined agent to an active or passive agent
-  
-     
- 1. configure agent type with set_config_int:
-   
+       
+ 1. configure agent type with set_config_int:   
 -An agent is usually instantiated at UVM environment class. 
 -So, it can be configured in the environment or any other component class where an agent is instantiated using int configuration parameter is_active as shown below.
       set_config_int("<path_to_agent>", "is_active", UVM_ACTIVE);
@@ -36,8 +34,16 @@ How to configure the agent as an active or passive agent???
 -The set_config_int method is deprecated in uvm1.2. If you run code with uvm1.2, following UVM_WARNING is expected.
    UVM_WARNING: uvm_test_top.env_o [UVM/CFG/SET/DPR] get/set_config_* API has been deprecated. Use uvm_config_db instead.
 - For better understanding , an example is created in below link ,
-   Link:
+     Link:
 
 2. configure agent type with uvm_config_db  
+     Link:
 
+3. Configuring user-defined agent to an active or passive agent
+   -The get_is_active() function is used to find out the type of agent. 
+   -The driver, sequencer instances are created if it is an active agent and monitor instance can be created by default irrespective of agent type.
+   -The get_is_active() function returns an enum as UVM_ACTIVE or UVM_PASSIVE of type uvm_active_passive_enum.
+   - For better understanding , an example is created in below link ,
+     Link:
+   
    
