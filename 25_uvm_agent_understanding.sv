@@ -19,9 +19,25 @@ Types of Agent :
   -Passive Agent: A passive agent does not drive stimulus to the DUT. It instantiates only a monitor component. It is used as a sample interface for coverage and checker purposes.
 
 How to configure the agent as an active or passive agent???
+
+-There are three ways we can do the above configuration. they are
+   1. configure agent type with set_config_int
+   2. configure agent type with uvm_config_db
+   3. Configuring user-defined agent to an active or passive agent
+  
+     
+ 1. configure agent type with set_config_int:
+   
 -An agent is usually instantiated at UVM environment class. 
 -So, it can be configured in the environment or any other component class where an agent is instantiated using int configuration parameter is_active as shown below.
       set_config_int("<path_to_agent>", "is_active", UVM_ACTIVE);
       set_config_int("<path_to_agent>", "is_active", UVM_PASSIVE);
--Note: By default, all agents are configured as UVM_ACTIVE.    
-  
+-Note: By default, all agents are configured as UVM_ACTIVE. 
+-The set_config_int method is deprecated in uvm1.2. If you run code with uvm1.2, following UVM_WARNING is expected.
+   UVM_WARNING: uvm_test_top.env_o [UVM/CFG/SET/DPR] get/set_config_* API has been deprecated. Use uvm_config_db instead.
+- For better understanding , an example is created in below link ,
+   Link:
+
+2. configure agent type with uvm_config_db  
+
+   
