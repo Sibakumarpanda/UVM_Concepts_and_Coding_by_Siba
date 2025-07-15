@@ -36,12 +36,12 @@ Approach A: Using get_next_item and item_done methods in the driver Without RSP 
 -It is important to call the get_response method to get the response. 
 -NOTE :This step is optional and not required if the RSP item is not sent by the DUT.
 - We can understand this , with an example in below link :
-  Link :
+     Link : https://github.com/Sibakumarpanda/UVM_Concepts_and_Coding_by_Siba/blob/main/23_ex1_sequence_driver_sequencer_comm_approach_without_rsp_pkt.sv
 
 Approach A: Using get_next_item and item_done methods in the driver With RSP packet : The steps are,  
   - The steps are same as above stpes mentioned in without RSP Packet section , An extra step (last step is needed here).
   - We can see this with an example in below link :
-    Link :
+      Link : https://github.com/Sibakumarpanda/UVM_Concepts_and_Coding_by_Siba/blob/main/23_ex2_sequence_driver_sequencer_comm_approach_with_rsp_pkt.sv
 
 Approach B: Using get and put methods in driver:
   
@@ -58,8 +58,5 @@ Approach B: Using get and put methods in driver:
 -Once it is completed, the put(RSP) method is called. This unblocks the get_response method from the sequence. 
 -The RSP item is communicated to the sequence by a sequencer with help of RSP FIFO.
 - We can understand this , with an example in below link :
-  Link :  
-  
-  
-  
+    Link :  https://github.com/Sibakumarpanda/UVM_Concepts_and_Coding_by_Siba/blob/main/23_ex3_sequence_driver_sequencer_comm_approach_using_get_put.sv
   
