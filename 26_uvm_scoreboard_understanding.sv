@@ -112,4 +112,113 @@ class inorder_sb extends uvm_scoreboard;
   endtask
 endclass :inorder_sb
   
-2. Out-of-order scoreboard :  
+2. Out-of-order scoreboard :
+  
+-The out-of-order scoreboard is useful for the design whose output order is different from driven input stimuli. 
+-Based on the input stimuli reference model will generate the expected outcome of DUT and the actual output is expected to come in any order. 
+-So, it is required to store such unmatched transactions generated from the input stimulus until the corresponding output has been received from the DUT to be compared. 
+-To store such transactions, an associative array is widely used. 
+-Based on index value, transactions are stored in the expected and actual associative arrays. 
+-The entries from associative arrays are deleted when comparison happens for the matched array index.
+-Below code is a sample for out of order scoreboard.
+  
+//Sample code Snippet for out of order Scoreboard
+  
+//Transaction Class 
+class txn extends uvm_sequence_item;
+  int id;  
+  // other class properties
+  //...
+endclass :txn
+
+//Scoreboard class 
+class out_of_order_sb extends uvm_scoreboard;
+  `uvm_component_utils(out_of_order_sb)
+  
+  uvm_analysis_export #(txn) in_export, out_export;
+  uvm_tlm_analysis_fifo #(txn) in_fifo, out_fifo;
+  
+  // associative array of class type as txn and indexed by int
+  txn expected_out_array[int];
+  txn actual_out_array[int];
+
+  // Store idx in separate queues.
+  int expected_out_q[$], actaul_out_q[$];
+
+  function new (string name = "out_of_order_sb" , uvm_component parent = null) ;
+    super.new(name, parent);
+  endfunction :new
+
+  function void build_phase (uvm_phase phase);
+    in_fifo    = new("in_fifo", this);
+    out_fifo   = new("out_fifo", this);
+    in_export  = new("in_export", this);
+    out_export = new("out_export", this);
+  endfunction :build_phase
+
+  function void connect_phase (uvm_phase phase);
+    in_export.connect(in_fifo.analysis_export);
+    out_export.connect(out_fifo.analysis_export);
+  endfunction :connect_phase
+
+  task run_phase( uvm_phase phase);
+    txn in_txn, out_txn;
+    forever begin
+      fork      
+        begin 
+          in_fifo.get(in_txn);
+          process_data(in_txn);
+        end
+        begin
+          out_fifo.get(out_txn);
+          actual_out_array[out_txn.id] = out_txn;
+          actaul_out_q.push_back(out_txn.id);
+        end
+      join
+      compare_data();
+    end 
+  endtask :run_phase
+  
+  // check_phase to check whether any entry is pending in queues.
+  function void check_phase(uvm_phase phase);
+    super. check_phase(phase);
+    if(expected_out_q.size() != 0) 
+       `uvm_info (get_full_name(), $sformatf("expected_out_q size = %0d", expected_out_q.size()), UVM_LOW);
+    if(actaul_out_q.size() != 0) 
+       `uvm_info (get_full_name(), $sformatf("actaul_out_q size = %0d", actaul_out_q.size()), UVM_LOW);
+  endfunction :check_phase
+
+  task process_data(txn in_txn);
+    txn exp_out_txn;
+    // Using reference models, generate output for input stimulus.
+    // store expected output (exp_out_txn) in expected_out_array
+    ...
+    ...
+    expected_out_array[in_txn.id] = exp_out_txn;
+    expected_out_q.push_back(in_txn.id);
+  endtask :process_data
+  
+  task compare_data();
+    int idx;
+    txn exp_txn, act_txn;
+    if(expected_out_q.size() > && actaul_out_q.size() > 0) begin
+      idx = expected_out_q.pop_front();
+      
+      // Look for idx in actual_out_array to see whether the output has been received for a driven stimulus or not.
+      if(actual_out_array.exists(idx)) begin 
+        exp_txn = expected_out_array[idx];
+        act_txn = actual_out_array[idx];
+        
+        if(!exp_txn.compare(act_txn)) begin
+          `uvm_error(get_full_name(), $sformat("%s does not match %s", exp_txn.sprint(), act_txn.sprint()), UVM_LOW);
+        end
+        else begin
+          expected_out_array.delete(idx);
+          actual_out_array.delete(idx);
+        end
+      end
+      else expected_out_q.push_back(idx); // exp_idx is not found in actual_out_array.
+    end
+  endtask :compare_data
+  
+endclass :out_of_order_sb
