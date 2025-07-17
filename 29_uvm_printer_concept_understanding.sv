@@ -39,3 +39,60 @@ Description:
 -Radix: radix to use for printing
 -scope_separator: To find the leaf name of the field.  
   
+virtual function void print_field_int (
+                      string    name,
+                      uvm_integral_t value, 
+                      int            size,
+                      uvm_radix_enum  radix = UVM_NORADIX, byte scope_separator = “.”,
+                      string type_name = “” )
+Description:
+-Same as print_field except size is upto 64 bits 
+
+virtual function void print_object (
+                      string      name,
+                      uvm_object  value,
+                      byte        scope_separator = ” .” ) 
+Description:
+-Prints an object and it is recursed depending on depth knob setting. Field definition remains the same as print_field method.  
+
+virtual function void print_string (
+                      string name,
+                      string value,
+                      byte scope_separator = “.” )
+  
+Description:  
+-Prints a string field.  
+  
+virtual function void print_time (
+                      string name,
+                      time value,
+                      byte scope_separator = “.” )
+  
+Description:
+-Prints a time value.
+-Name: field name
+-Value: field value to print. The print format is subject to the $timeformat system task.  
+
+virtual function void print_real (
+                      string name,
+                      real value,
+                      byte scope_separator = “.” )
+
+Description:  
+-Prints a real field.  
+
+virtual function void print_generic (
+                      string name,
+                      string type_name,
+                      int size,
+                      string value,
+                      byte scope_separator = “.” )
+  
+Description:
+-Prints a generic field for mentioned name, type, size and value.
+
+Example:
+-For better understanding an example has been created in below link , you can go through this.
+-Link :  
+  
+  
