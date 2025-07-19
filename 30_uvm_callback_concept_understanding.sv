@@ -88,5 +88,10 @@ class derived_cb extends driver_cb;
   endtask
 endclass  
   
-
+UVM callback in uvm_sequence :
+-The steps mentioned to implement callback in uvm_sequence are the same as above.
+-Note that `uvm_do_obj_callbacks macro is used as a callback hook with associated sequencer.
+-`uvm_do_obj_callbacks(sequencer,seq_cb,l_seqr,modify_pkt(req));
+-Where l_seqr handle points to object handle of sequencer class. Instead of this approach, p_seqeuncer can also be used here and p_sequencer must be declared using `uvm_declare_p_sequencer macro.
+-`uvm_do_obj_callbacks(sequencer,seq_cb,p_sequencer,modify_pkt(req));
   
