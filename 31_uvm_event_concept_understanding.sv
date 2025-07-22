@@ -41,4 +41,32 @@ uvm_event class methods :
    
 Type               Methods                         Description 
 
-function           new                             Creates a new object for the event   
+function           new                             Creates a new object for the event  
+
+function           trigger                         Triggers the event for resuming all waiting processes. It also has an optional data argument to provide trigger-specific information.   
+
+function           get_trigger_data                Gets the data information provided by the last trigger function call if any. 
+
+task               wait_trigger_data               This method calls uvm_event_base::wait_trigger followed by get_trigger_data.  
+
+task               wait_ptrigger_data              This method calls uvm_event_base::wait_ptrigger followed by get_trigger_data.
+
+function           add_callback                    Registers a callback cb object with the event. It may include pre-trigger and post_trigger functionality
+
+function           delete_callback                 Unregisters the given callback cb from the event.  
+
+
+Various examples with to understand the uvm_event concept : ()
+  
+  1. Event is triggered using -> and waiting for SystemVerilog event to be triggered via the @ operator
+      a. Type A1: An event is triggered after waiting for the event trigger
+      b. Type B1: An event is triggered before waiting for event trigger
+      c. Type C1: An event is triggered at the same time as waiting for the event trigger  
+
+  2. Event is triggered using -> and waiting for SystemVerilog event to be triggered via wait() construct      
+      a. Type A2: An event is triggered after waiting for the event trigger
+      b. Type B2: An event is triggered before waiting for event trigger
+      c. Type C2: An event is triggered at the same time as waiting for the event trigger 
+
+ 3.  
+         
