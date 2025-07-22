@@ -56,17 +56,21 @@ function           add_callback                    Registers a callback cb objec
 function           delete_callback                 Unregisters the given callback cb from the event.  
 
 
-Various examples with to understand the uvm_event concept : ()
+Various examples with to understand the uvm_event concept : All examples can be found in below link .
+   Link : https://github.com/Sibakumarpanda/UVM_Concepts_and_Coding_by_Siba/blob/main/31_uvm_event_various_posible_example.sv
   
-  1. Event is triggered using -> and waiting for SystemVerilog event to be triggered via the @ operator
+   1. Event is triggered using e1.trigger and waiting for the event to be triggered via the wait_trigger (e1.wait_trigger) method
       a. Type A1: An event is triggered after waiting for the event trigger
-      b. Type B1: An event is triggered before waiting for event trigger
+      b. Type B1: An event is triggered before waiting for the event trigger
       c. Type C1: An event is triggered at the same time as waiting for the event trigger  
 
-  2. Event is triggered using -> and waiting for SystemVerilog event to be triggered via wait() construct      
+   2. Event is triggered using e1.trigger and waiting for the event to be triggered via the wait_ptrigger (e1.wait_ptrigger) method      
       a. Type A2: An event is triggered after waiting for the event trigger
       b. Type B2: An event is triggered before waiting for event trigger
       c. Type C2: An event is triggered at the same time as waiting for the event trigger 
 
- 3.  
-         
+   3.  Event is triggered with data (e1.trigger(tr_A)) and waiting for the event to be triggered and retrieve data using wait_on and get_trigger_data
+      a. Type A3: retrieve data using wait_on and get_trigger_data.   
+      b. Type B3: retrieve data using wait_trigger_data
+      c. Type C3: retrieve data using wait_ptrigger_data 
+     
