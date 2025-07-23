@@ -89,3 +89,6 @@ xmsim: *W,RNQUIE: Simulation is complete.
 xcelium> exit
 TOOL:	xrun	23.09-s001: Exiting on Jul 22, 2025 at 22:50:14 EDT  (total: 00:00:07)
 Done
+	
+Example2: Type B1: An event is triggered before waiting for the event trigger
+	
