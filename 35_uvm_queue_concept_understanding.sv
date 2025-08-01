@@ -7,4 +7,6 @@ uvm_queue class Methods :
   Methods                                                           Description
 
   function new ( string name = “” )                                Creates a new queue for the given name  
+
+    static function T get_global ( int index )                      Returns the specified item instance from the global item queue.  
   
