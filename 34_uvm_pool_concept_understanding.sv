@@ -12,3 +12,10 @@ uvm_pool class Methods :
   function new ( string name = “” )                                  Creates pool for the given name 
 
   static function T get_global ( KEY key )                          Returns the specified item instance from the global item pool.  
+
+  static function this_type get_global_pool ()                     Returns the singleton global pool for the item of type T.  
+
+  virtual function int num ()                                    Returns the total number of items in the pool for unique keys 
+
+  virtual function void add ( KEY key, T item )                  Adds given item for the given key as a (key, item) pair. 
+                                                                 If an item exists already for the given key, the previous item is overwritten with the new item.  
