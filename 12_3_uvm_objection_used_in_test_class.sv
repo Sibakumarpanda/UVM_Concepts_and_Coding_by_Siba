@@ -1,7 +1,10 @@
-/*
-EXAMPLE-1 : An objection in the test component
-The raise_objection is called prior to executing the run_phase. Once activities of run_phase are completed, the drop_objection is called. The run_phase of the test is mentioned below.
-*/
+/////////////////////////////////////////////////////////////////////////////////////////////
+  EXAMPLE-1 : An objection in the test component
+  The raise_objection is called prior to executing the run_phase. 
+  Once activities of run_phase are completed, the drop_objection is called. 
+  The run_phase of the test is mentioned below.
+/////////////////////////////////////////////////////////////////////////////////////////////
+
 // Transaction class or Sequence item class
 class my_seq_item extends uvm_sequence_item;
   `uvm_object_utils(my_seq_item)
