@@ -1,10 +1,12 @@
-Resource database Concept and Mechanism in UVM :
-
-The UVM centralized resource database is used to store configurable objects, variables, virtual interfaces, queues, class handles, etc and retrieve them from the database. 
-Hence , such a configurable testbench provides a degree of freedom to the verification engineer to use provided information in various parts of the testbench.
-The resource database consists of polymorphic resource containers that store each resource in the form of a lookup table.
-A lookup table is nothing but a centralized resource database. 
-The uvm_resource_base and uvm_resource as shown below are uvm source code snippets.
+/////////////////////////////////////////////////////////////
+   Resource database Concept and Mechanism in UVM 
+/////////////////////////////////////////////////////////////
+-The UVM centralized resource database is used to store configurable objects, variables, virtual interfaces, queues, class handles and retrieve them from the database. 
+-Hence , such a configurable testbench provides a degree of freedom to the verification engineer to use provided information in various parts of the testbench.
+-The resource database consists of polymorphic resource containers that store each resource in the form of a lookup table.
+-A lookup table is nothing but a centralized resource database. 
+-The uvm_resource_base and uvm_resource as shown below are uvm source code snippets.
+-Hence ,in one line we can say , Resource DB is nothing but the centralized database (basically a look up table ) that stores configurable objects, variables, virtual interfaces, queues, class handles
   
 //uvm_resource_base code Snippet:  
 virtual class uvm_resource_base extends uvm_object;
@@ -36,7 +38,9 @@ endclass
 -The variable default_precedence is used to set the default precedence value initially i.e. 1000. 
 -It is allowed to change the precedence value. When two resources have the same precedence, the first resource found has a priority.
   
-Resource database organization :
+////////////////////////////////////////////////  
+    Resource database organization 
+///////////////////////////////////////////////  
 -The resource database is also known as the resource pool.  
 -The resource database consists of a pair of associative array names as ‘name table’ and ‘type table’. 
 -The ‘name table’ and ‘type table’ are alternatively known as ‘name map’ and ‘type map’. 
@@ -59,11 +63,13 @@ The searching in the resource database depends on below-
   2. Precedence of the resource
   3. The order in which resource was added in the queue.
   
-Search steps-
+Search steps:
   1.The resource is located in the database by resource name, type, and scope. The scope represents a string that initiates the resource search. 
   2.For name-based search, the resource name is used to locate the queue in the name table which contains a set of resources with the same name. 
   3.If the queue is empty (i.e. no resource available in the queue) results in search fail and return null.
-  4.If the queue is non-empty, then the queue is traversed from the back for each resource available in the queue. Based on the precedence value for the resource available in the current scope, it returns the target resource. If more resources have the same precedence value then the target resource will be the earliest in the queue.
+  4.If the queue is non-empty, then the queue is traversed from the back for each resource available in the queue. 
+    Based on the precedence value for the resource available in the current scope, it returns the target resource. 
+    If more resources have the same precedence value then the target resource will be the earliest in the queue.
   5.If the queue is non-empty and the target resource is not found in the queue, results in search fail and return null.
   6.For type-based search, the same steps are followed.
     
