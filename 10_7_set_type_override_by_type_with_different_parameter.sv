@@ -1,13 +1,12 @@
-/* 
-Example10: for set_type_override_by_type with parameterized classes (with Different parameter)
-Note: For parameterized classes, an overriding class should have the same parameter values.
-      If an overriding class has different parameter values, factory overriding will fail.
-Arguments	Uses actual types (::type)
-set_type_override_by_type , Synatx :  function void set_type_override_by_type (uvm_object_wrapper original_type,
-                                                                               uvm_object_wrapper override_type,
-                                                                                bit replace = 1)
-
-*/
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+     Example10: for set_type_override_by_type with parameterized classes (with Different parameter)
+     Note: For parameterized classes, an overriding class should have the same parameter values.
+           If an overriding class has different parameter values, factory overriding will fail.
+     Arguments	Uses actual types (::type)
+     set_type_override_by_type , Synatx :  function void set_type_override_by_type (uvm_object_wrapper original_type,
+                                                                                   uvm_object_wrapper override_type,
+                                                                                   bit replace = 1)
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Base class- animal
 class animal #(parameter ID_WIDTH = 8) extends uvm_component;
