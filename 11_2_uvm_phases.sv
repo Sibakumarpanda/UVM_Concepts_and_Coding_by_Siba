@@ -1,5 +1,6 @@
-UVM Phases Concept:
-
+///////////////////////////////////////
+   UVM Phases Concept
+///////////////////////////////////////
 Why are phases introduced for UVM based System Verilog testbench but not for Verilog-based testbench ???
 - All components are static in Verilog-based testbench whereas System Verilog introduced OOP (Object Oriented Programming) feature in the testbench,concept of class which is dynamic in nature. 
 - In Verilog, as modules are static, users don’t have to care about their creation as they would have already created at the beginning of the simulation. 
@@ -16,12 +17,13 @@ The phases are an important concept in uvm that applies to all TB components.
   2. Run-time phases: Time-consuming testbench activity like running the test case. (They are start_of_simulation_phase,run_phase and sub phases of run_phase like reset , configure , main, shutdown)
   3. Clean up phases: Collect and report the results of the simulation. (extract_phase, check_phase, report_phase, final_phase)
 
-How does UVM phase execution start?
-    
-The run_test() method is required to call from the static part of the testbench. 
-This will trigger up the UVM testbench. 
-It is usually called in the initial block from the top-level testbench module. 
-The run_test() method call to construct the UVM environment root component and then initiates the UVM phasing mechanism.
+/////////////////////////////////////////////////
+   How does UVM phase execution start?
+////////////////////////////////////////////////    
+-The run_test() method is required to call from the static part of the testbench. 
+-This will trigger up the UVM testbench. 
+-It is usually called in the initial block from the top-level testbench module. 
+-The run_test() method call to construct the UVM environment root component and then initiates the UVM phasing mechanism.
 
 1. Build phases: To construct a testbench, it is necessary to build component objects first and then are connected to form a hierarchy, The build phase category consists
    a. build_phase
