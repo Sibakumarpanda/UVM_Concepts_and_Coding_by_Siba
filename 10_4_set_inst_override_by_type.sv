@@ -1,15 +1,14 @@
-/*
-EXAMPLE-5: set_inst_override_by_type (factory override with uvm objects)
-Arguments:	Uses types (::type) and full instance path
-Syntax:
-factory.set_inst_override_by_type(
-  original_type::get_type(),  // Original type to override
-  override_type::get_type(),  // New type to use
-  "full_or_relative_path",    // Instance path
-  [parent_component]         // Optional context (for relative paths)
-);
-
-*/
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+   EXAMPLE-5: set_inst_override_by_type (factory override with uvm objects)
+   Arguments:	Uses types (::type) and full instance path
+   Syntax:
+  factory.set_inst_override_by_type(
+      original_type::get_type(),  // Original type to override
+      override_type::get_type(),  // New type to use
+      "full_or_relative_path",    // Instance path
+      [parent_component]         // Optional context (for relative paths)
+      );
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Base class- animal
 class animal extends uvm_object;
@@ -234,18 +233,17 @@ CPU Time:      0.390 seconds;       Data structure size:   0.2Mb
 Thu Jun  5 02:20:48 2025
 Done
 
-/*
-EXAMPLE-6: set_inst_override_by_type (factory override with uvm component)
-Arguments:	Uses types (::type) and full instance path
-Syntax:
-factory.set_inst_override_by_type(
-  original_type::get_type(),  // Original type to override
-  override_type::get_type(),  // New type to use
-  "full_or_relative_path",    // Instance path
-  [parent_component]         // Optional context (for relative paths)
-);
-
-*/
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    EXAMPLE-6: set_inst_override_by_type (factory override with uvm component)
+    Arguments:	Uses types (::type) and full instance path
+    Syntax:
+    factory.set_inst_override_by_type(
+        original_type::get_type(),  // Original type to override
+        override_type::get_type(),  // New type to use
+       "full_or_relative_path",    // Instance path
+       [parent_component]         // Optional context (for relative paths)
+       );
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Base class- animal
 class animal extends uvm_component;
