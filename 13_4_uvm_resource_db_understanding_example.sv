@@ -1,6 +1,8 @@
-//Example for Resource DB Understanding
-//Class component_A
+//////////////////////////////////////////////////////////
+  Example1: Resource DB Understanding
+///////////////////////////////////////////////////////// 
 
+//Class component_A
 class component_A #(parameter ID_WIDTH = 8) extends uvm_component;
  
   `uvm_component_param_utils(component_A #(ID_WIDTH))
@@ -19,7 +21,6 @@ class component_A #(parameter ID_WIDTH = 8) extends uvm_component;
 endclass :component_A
 
 //Class mycomponent
-
 class mycomponent #(parameter ID_WIDTH = 8) extends uvm_component;
  
   `uvm_component_param_utils(mycomponent #(ID_WIDTH))
@@ -38,7 +39,6 @@ class mycomponent #(parameter ID_WIDTH = 8) extends uvm_component;
 endclass :mycomponent
 
 // Class component_B
-
 class component_B #(int ID_WIDTH = 8) extends component_A #(ID_WIDTH);
  
   `uvm_component_param_utils(component_B #(ID_WIDTH))
@@ -72,7 +72,6 @@ class component_B #(int ID_WIDTH = 8) extends component_A #(ID_WIDTH);
 endclass :component_B
 
 //class my_test
-
 class my_test extends uvm_test;
  
   `uvm_component_utils(my_test)
