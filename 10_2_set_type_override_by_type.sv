@@ -1,13 +1,12 @@
-/*
-EXAMPLE-1: set_type_override_by_type (factory override with uvm objects)
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  EXAMPLE-1: set_type_override_by_type (factory override with uvm objects)
+  Arguments	Uses actual types (::type)
 
-Arguments	Uses actual types (::type)
+  set_type_override_by_type , Synatx :  function void set_type_override_by_type (uvm_object_wrapper original_type,
+                                                                                 uvm_object_wrapper override_type,
+                                                                                 bit replace = 1)
 
-set_type_override_by_type , Synatx :  function void set_type_override_by_type (uvm_object_wrapper original_type,
-                                                                               uvm_object_wrapper override_type,
-                                                                                bit replace = 1)
-
-*/
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Base class- animal
 class animal extends uvm_object;
@@ -199,16 +198,15 @@ CPU Time:      0.490 seconds;       Data structure size:   0.2Mb
 Thu Jun  5 01:55:11 2025
 Done
 
-/*
-EXAMPLE-2: set_type_override_by_type (factory override with uvm components)
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  EXAMPLE-2: set_type_override_by_type (factory override with uvm components)
+  Arguments	Uses actual types (::type)
 
-Arguments	Uses actual types (::type)
+  set_type_override_by_type , Synatx :  function void set_type_override_by_type (uvm_object_wrapper original_type,
+                                                                                 uvm_object_wrapper override_type,
+                                                                                 bit replace = 1)
 
-set_type_override_by_type , Synatx :  function void set_type_override_by_type (uvm_object_wrapper original_type,
-                                                                               uvm_object_wrapper override_type,
-                                                                                bit replace = 1)
-
-*/
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Base class- animal
 class animal extends uvm_component;
