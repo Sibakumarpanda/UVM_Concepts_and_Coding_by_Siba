@@ -5,7 +5,9 @@
 -It is another layer of convenience layer on the top of uvm_resource_db that simplifies the basic interface (access methods of resource database) used for uvm_component instances.
 -The below code snippet for the uvm_config_db class is taken from the uvm source code.
 
-//uvm_config_db code Snippet
+//////////////////////////////////////
+  uvm_config_db code Snippet
+//////////////////////////////////////  
 
 class uvm_config_db#(type T=int) extends uvm_resource_db#(T);
 
@@ -30,8 +32,9 @@ class uvm_config_db#(type T=int) extends uvm_resource_db#(T);
 ...
 ...
 endclass  
-
-uvm_config_db methods :
+///////////////////////////
+  uvm_config_db methods :
+///////////////////////////  
   
 In below, all are static functions as mentioned below except wait_modified is a static task  .
 
