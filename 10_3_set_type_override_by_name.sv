@@ -1,14 +1,13 @@
-/*
-EXAMPLE-3: set_type_override_by_name (factory override with uvm objects)
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  EXAMPLE-3: set_type_override_by_name (factory override with uvm objects)
 
-Arguments	Uses strings with type names                                                                              
+  Arguments	Uses strings with type names                                                                              
   
-set_type_override_by_name  , Synatx : function void set_type_override_by_name (string original_type_name,
-                                                                               string override_type_name,
-                                                                            bit replace = 1)
+  set_type_override_by_name  , Synatx : function void set_type_override_by_name (string original_type_name,
+                                                                                 string override_type_name,
+                                                                                 bit replace = 1)
                                                                             
-
-*/
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Base class- animal
 class animal extends uvm_object;
@@ -200,17 +199,14 @@ CPU Time:      0.480 seconds;       Data structure size:   0.2Mb
 Thu Jun  5 02:00:19 2025
 Done
   
-/*
-EXAMPLE-4: set_type_override_by_name (factory override with uvm components)
-
-Arguments	Uses strings with type names                                                                              
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+   EXAMPLE-4: set_type_override_by_name (factory override with uvm components)
+   Arguments	Uses strings with type names                                                                              
   
-set_type_override_by_name  , Synatx : function void set_type_override_by_name (string original_type_name,
-                                                                               string override_type_name,
-                                                                               bit replace = 1)
-                                                                            
-
-*/
+   set_type_override_by_name  , Synatx : function void set_type_override_by_name (string original_type_name,
+                                                                                  string override_type_name,
+                                                                                  bit replace = 1)                                                                            
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Base class- animal
 class animal extends uvm_component;
