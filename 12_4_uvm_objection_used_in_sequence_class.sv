@@ -1,10 +1,10 @@
-/*
-EXAMPLE-2a : An objection in the Sequence Class
-The objection can be raised and dropped either in body tasks or pre_body/ post_body tasks.
-a. With use of starting_phase.raise_objection(this); and starting_phase.drop_objection(this);  
-NOTE: The above method is not recommended to use with uvm1.2 as the starting_phase() method from uvm_sequence_base is deprecated in uvm1.2 
-
-*/
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  EXAMPLE-2a : An objection in the Sequence Class
+  The objection can be raised and dropped either in task body () /task pre_body () / task post_body 
+  With use of starting_phase.raise_objection(this); and starting_phase.drop_objection(this);  
+  NOTE: The above method is not recommended to use with uvm1.2 as the starting_phase() method from 
+  uvm_sequence_base is deprecated in uvm1.2 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //Transaction class or Sequence item class
 class my_seq_item extends uvm_sequence_item;
@@ -148,21 +148,26 @@ CPU Time:      0.450 seconds;       Data structure size:   0.2Mb
 Sat Jun  7 12:47:47 2025
 Done
   
-/*
-EXAMPLE-2b : With use of set_starting_phase and get_starting_phase methods ----> Need to check and create an example for it 
-*/
+////////////////////////////////////////////////////////////////////////////////////////
+   EXAMPLE-2b : With use of set_starting_phase and get_starting_phase methods 
+   Need to check and create an example for it 
+////////////////////////////////////////////////////////////////////////////////////////
 
-/*
-EXAMPLE-2c : An objection in the Sequence Class
-The objection can be raised and dropped either in body tasks or pre_body/ post_body tasks.
-C. With use of set_automatic_phase_objection method
-The uvm1.2 also added the set_automatic_phase_objection method that automatically raises and drops the objection for the current sequence. 
-Alternatively, there is no need to call raise_objection prior to executing the sequence and drop_objection once execution is completed.
-Instead, make set_automatic_phase_objection(1) either in the new() method of the sequence or before starting the sequence.
-Note: 
-1.Do not make set_automatic_phase_objection(1) if the sequence runs with a forever loop inside of the body, as the objection will never get dropped.
-2. This method will not work if we will run with UVM1.1d . It will work with UVM1.2
-*/
+
+
+     
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  EXAMPLE-2c : An objection in the Sequence Class
+  The objection can be raised and dropped either in body tasks or pre_body/ post_body tasks.
+  C. With use of set_automatic_phase_objection method
+  The uvm1.2 also added the set_automatic_phase_objection method that automatically raises and drops the objection for the current sequence. 
+  Alternatively, there is no need to call raise_objection prior to executing the sequence and drop_objection once execution is completed.
+  Instead, make set_automatic_phase_objection(1) either in the new() method of the sequence or before starting the sequence.
+  Note: 
+  1.Do not make set_automatic_phase_objection(1) if the sequence runs with a forever loop inside of the body, as the objection will never get dropped.
+  2. This method will not work if we will run with UVM1.1d . It will work with UVM1.2
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 class my_seq_item extends uvm_sequence_item;
   `uvm_object_utils(my_seq_item)
