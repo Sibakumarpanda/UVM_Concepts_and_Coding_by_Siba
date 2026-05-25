@@ -1,18 +1,17 @@
-/*
-EXAMPLE-7: set_inst_override_by_name (factory override with uvm objects)
-Arguments :  Uses strings for type names and instance path
-Syntax for set_inst_override_by_name: 
-factory.set_inst_override_by_name(
-  "original_type_name",      // Original type as string
-  "override_type_name",      // New type as string
-  "full_or_relative_path",   // Instance path
-  [parent_component]         // Optional context (for relative paths)
-); 
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+    EXAMPLE-7: set_inst_override_by_name (factory override with uvm objects)
+    Arguments :  Uses strings for type names and instance path
+    Syntax for set_inst_override_by_name: 
+      factory.set_inst_override_by_name(
+             "original_type_name",      // Original type as string
+             "override_type_name",      // New type as string
+             "full_or_relative_path",   // Instance path
+             [parent_component]         // Optional context (for relative paths)
+     ); 
 
-*/
+/////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Base class- animal
-
 class animal extends uvm_object;
   `uvm_object_utils(animal)
   
@@ -232,18 +231,17 @@ CPU Time:      0.400 seconds;       Data structure size:   0.2Mb
 Thu Jun  5 02:25:20 2025
 Done
 
-/*
-EXAMPLE-8: set_inst_override_by_name (factory override with uvm component)
-Arguments :  Uses strings for type names and instance path
-Syntax for set_inst_override_by_name 
-factory.set_inst_override_by_name(
-  "original_type_name",      // Original type as string
-  "override_type_name",      // New type as string
-  "full_or_relative_path",   // Instance path
-  [parent_component]         // Optional context (for relative paths)
-); 
-
-*/
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////  
+    EXAMPLE-8: set_inst_override_by_name (factory override with uvm component)
+    Arguments :  Uses strings for type names and instance path
+    Syntax for set_inst_override_by_name 
+       factory.set_inst_override_by_name(
+             "original_type_name",      // Original type as string
+             "override_type_name",      // New type as string
+             "full_or_relative_path",   // Instance path
+             [parent_component]         // Optional context (for relative paths)
+             ); 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Base class- animal
 class animal extends uvm_component;
