@@ -1,16 +1,17 @@
-UVM Objection Concept:
-
+//////////////////////////////
+  UVM Objection Concept
+//////////////////////////////
 -It provides a mechanism to coordinate status information between two or more components, objects. 
 -The uvm_objection class is extended from uvm_report_object.
 -The objection deals with the concept of raise and drop objection which means the internal counter is increment and decrement respectively. 
 -Each participating component and object may raise or drop objections asynchronously. 
 -When all objections are dropped, the counter value will become zero. 
 -The objection has to be raised before starting any process and drop it once it is completed.
-  
-Decleration :  
-class uvm_objection extends uvm_report_object  
+-Decleration :  class uvm_objection extends uvm_report_object  
 
-UVM Objection Usage:
+////////////////////////////  
+  UVM Objection Usage:
+////////////////////////////  
 -UVM phasing mechanism uses objections to coordinate with each other and the phase should be ended when all objections are dropped. 
 -They can be used in all UVM phases.
 -It allows proceeding for the “End of test”. 
@@ -18,8 +19,10 @@ UVM Objection Usage:
 -If all objections dropped for run phases, it means simulation activity is completed. Then , The test can be ended after executing the next phase that is clean up phases.
 -Objections are generally used in components and sequences.
 -Other objects can also use them but they must use a component or sequence object context.
-
-Where to place raise and drop objection ???
+  
+/////////////////////////////////////////////////////////
+   Where to place raise and drop objection ???
+////////////////////////////////////////////////////////  
 task reset_phase( uvm_phase phase);
   phase.raise_objection(this);
   ...
@@ -32,12 +35,14 @@ task run_phase(uvm_phase phase);
   phase.drop_objection(this, "Dropped Objection");
 endtask
 
-Methods in uvm_objection :
+/////////////////////////////////////  
+  Methods in uvm_objection :
+/////////////////////////////////////  
   
 Methods                                                                                                   Description  
 raise_objection (uvm_object obj = null, string description = ” “, int count = 1)                          Raises number of objections for corresponding object with default count = 1  
 drop_objection (uvm_object obj = null, string description = ” “, int count = 1)                           Drops number of objections for corresponding object with default count = 1
-  set_drain_time (uvm_object obj=null, time drain)                                                        Sets drain time for corresponding objects
+  set_drain_time (uvm_object obj=null, time drain)                                                         Sets drain time for corresponding objects
 
 Where , Drain Time: The amount of wait time between all objections has been dropped and calling all_dropped() callback is called drain time.
     
