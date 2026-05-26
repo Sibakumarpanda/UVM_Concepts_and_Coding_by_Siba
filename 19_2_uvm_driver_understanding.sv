@@ -1,24 +1,32 @@
-UVM Driver understanding:
--The driver interacts with DUT. 
--It drives randomized transactions or sequence items to DUT as a pin-level activity using an interface. 
+///////////////////////////////////
+   UVM Driver understanding
+///////////////////////////////////
+-Basically ,the driver interacts with DUT.
+-As we know Driver is a class (dynamic in nature) and DUT is a module (static in nature).
+-Driver drives randomized transactions or sequence items to DUT as a pin-level activity using an interface. 
+-Means , driver will convert the packet/seq_item level informaions to pin level informations.   
 -The driver has to be extended from uvm_component names as uvm_driver. 
--The transaction or sequence items are retrieved from the sequencer and the driver drives them to the design using the interface handle. 
+-The transaction/sequence items are retrieved from the sequencer and the driver drives them to the design using the interface handle. 
 -An interface handle can be retrieved from the configuration database which was already set in the top-level hierarchy.
--The uvm_driver class is a parameterized class of type REQ sequence_item and RSP sequence item.
+-The uvm_driver class is a parameterized class of type REQ sequence_item and RSP sequence_item.
 -RSP sequence item is optional. 
 -Usually, the REQ and RSP sequence item has the same class type. They can be different if it is declared specifically.
-
-uvm_driver class declaration:    class uvm_driver #( type REQ = uvm_sequence_item, type RSP = REQ ) extends uvm_component  
-
-How to write the driver code?
-  
+-uvm_driver class declaration:             class uvm_driver #( type REQ = uvm_sequence_item, type RSP = REQ ) extends uvm_component  
+  -user defined driver class declaration:  class my_driver extends uvm_driver ;
+    
+//////////////////////////////////////  
+  How to write the driver code?
+/////////////////////////////////////   
 -Create a user-defined driver class extended from uvm_driver and register it in the factory.
 -Declare virtual interface handle to retrieve actual interface handle using configuration database in the build_phase.
--Write standard new() function. Since the driver is a uvm_component. The new() function has two arguments as string name and uvm_component parent.
+-Write standard new() function. 
+-Since the driver is a uvm_component, The new() function has two arguments as string name and uvm_component parent.
 -Implement build_phase and get interface handle from the configuration database.
 -Implement run_phase to get the sequence items and drive them to the DUT using a virtual interface handle.  
 
-//UVM Driver Sample code Snippet :
+//////////////////////////////////////////
+  UVM Driver Sample code Snippet 
+//////////////////////////////////////////  
 class my_driver extends uvm_driver#(seq_item);
   virtual add_if vif;
   `uvm_component_utils(my_driver)
@@ -37,15 +45,19 @@ class my_driver extends uvm_driver#(seq_item);
     // Get the sequence_item and drive it to DUT
   endtask
 endclass :my_driver
-  
-How to get sequence items from the sequencer?
+
+/////////////////////////////////////////////////////  
+   How to get sequence items from the sequencer?
+////////////////////////////////////////////////////     
 -TLM (Transaction Level Modelling) interface is used by the driver of type uvm_seq_item_pull_port to accept a series of REQ sequence items from the sequencer.
 -The driver can provide optional RSP sequence items back to the sequencer if required. The details can be more discussed at Sequence-Driver-Sequencer communication section.
 -UVM driver methods: There are two ways to interact with the sequencer as below.
     1. Using get_next_item/ try_next_item and item_done methods
     2. Using get and put methods
-
-1. Using get_next_item/ try_next_item and item_done methods:
+  
+////////////////////////////////////////////////////////////////////////
+  1. Using get_next_item/ try_next_item and item_done methods
+//////////////////////////////////////////////////////////////////////// 
 -Let’s first understand get_next_item, try_next_item and item_done methods
 
 Type                                     Methods                                  Description  
@@ -72,8 +84,10 @@ endtask
                                                                                    
 NOTE: In this approach, get_next_item or successful try_next_item retrieves the REQ sequence item to drive it to the DUT using the virtual interface handle. 
       The item_done method has to be called once driving logic is completed.
-                                                                                   
-2. Using get and put methods:
+  
+///////////////////////////////////////                                                                                   
+  2. Using get and put methods
+///////////////////////////////////////  
 
 Methods                    Description
 
@@ -95,9 +109,10 @@ task run_phase (uvm_phase phase);
     seq_item_port.put(rsp_item);
   end
 endtask 
-
-Difference between get_next_item/ item_done and get/ put approach?
   
+/////////////////////////////////////////////////////////////////////////////
+  Difference between get_next_item/ item_done and get/ put approach?
+//////////////////////////////////////////////////////////////////////////////  
  1.The item_done must be called after get_next_item() or successful try_next_item() call, then only the next sequence item can be requested. 
    Whereas, get() call can request another request item even if the put() method is not called.
  2.The put() call must be called with the RSP sequence item as an argument whereas it is optional for item_done() call. 
