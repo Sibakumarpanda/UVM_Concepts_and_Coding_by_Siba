@@ -1,10 +1,14 @@
-UVM Sequence understanding:
--UVM sequence is a container that holds data items (uvm_sequence_items) which are sent to the driver via the sequencer.
+////////////////////////////////
+  UVM Sequence understanding
+///////////////////////////////
+-UVM sequence is a container that holds transactions/data items (uvm_sequence_items) which are sent to the driver via the sequencer.
 -Note: uvm_sequence class is parameterized with uvm_sequence_item.
--uvm_sequence class declaration: virtual class uvm_seqence #( type REQ = uvm_sequence_item, type RSP = REQ) extends uvm_sequence_base
+-uvm_sequence class declaration:             virtual class uvm_seqence #( type REQ = uvm_sequence_item, type RSP = REQ) extends uvm_sequence_base
+-user defined sequence class declaration :   class my_sequence extends uvm_sequence # (my_sequence_item);
 
-uvm_sequence class structure :
-  
+///////////////////////////////////  
+  uvm_sequence class structure 
+///////////////////////////////////      
 class my_sequence extends uvm_sequence #(my_seq_item);
   `uvm_object_utils(my_sequence)
 
@@ -15,11 +19,16 @@ class my_sequence extends uvm_sequence #(my_seq_item);
   task body();
     ...
   endtask
-endclass :my_sequence
-
-NOTE:  Why `uvm_object_utils is used in sequence, why `uvm_sequence_utils are not used?
-`uvm_sequence_utils is a string-based sequence library that is deprecated in UVM. 
-
+endclass : my_sequence
+    
+//////////////////////////////////////////////////////////////////////////////////////////////
+   NOTE:  Why `uvm_object_utils is used in sequence, why `uvm_sequence_utils are not used?
+   `uvm_sequence_utils is a string-based sequence library that is deprecated in UVM. 
+///////////////////////////////////////////////////////////////////////////////////////////////  
+  
+////////////////////////////////////////////  
+  User defined sequence class structure 
+///////////////////////////////////////////
  class my_sequence extends uvm_sequence #(my_seq_item);
   `uvm_sequence_utils(my_sequence)  // Older style
   // or `uvm_object_utils(my_sequence) in newer UVM
@@ -31,21 +40,24 @@ NOTE:  Why `uvm_object_utils is used in sequence, why `uvm_sequence_utils are no
   virtual task body();
     // Sequence logic here
   endtask
-endclass 
+endclass :my_sequence
 
 -Note: In UVM 1.2 and later, the recommendation is to use `uvm_object_utils instead for most sequence definitions (`uvm_sequence_utils).
 -Its is Officially deprecated since UVM 1.2 (IEEE 1800.2).
 -Still exists in codebases for backward compatibility.
 -Generates warnings when used in modern simulators.
 
-What is the body() method and its uses/functionality in sequence ? 
-  
+//////////////////////////////////////////////////////////////////////////  
+   What is the body() method and its uses/functionality in sequence ? 
+//////////////////////////////////////////////////////////////////////////       
 -The operation which is intended to do by sequence is defined inside a body method.
 -Along with a body() method,  pre_body, and post_body methods are called by default.
 -These pre_body and post_body tasks are additional (can be named as callbacks) which are useful to perform any operation before and after the execution of the body() method. 
 -pre_body() and post_body() methods are optional. 
 
-// Sequence sample code Snippet:  
+///////////////////////////////////////////  
+    Sequence sample code Snippet
+///////////////////////////////////////////  
 class my_sequence extends uvm_sequence #(my_seq_item);
   `uvm_object_utils(my_sequence)
 
@@ -65,4 +77,5 @@ class my_sequence extends uvm_sequence #(my_seq_item);
     ...
   endtask
 endclass :my_sequence
-NOTE: On next , it is very important to know How to write a sequence ? 
+  
+NOTE: On Next , it is very important to know How to write a sequence ? We will see in upcoming discussion files.
