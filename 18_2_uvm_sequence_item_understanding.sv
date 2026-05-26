@@ -1,10 +1,14 @@
-Sequence Items in UVM Understanding:
-
--All user-defined sequence items are extended from the uvm_sequence_item class as it leverages generating stimulus and has control capabilities for the sequence-sequencer mechanism.
+//////////////////////////////////////////////
+  Sequence Items in UVM Understanding
+/////////////////////////////////////////////
+-All user-defined sequence items are extended from the uvm_sequence_item class as it leverages generating stimulus.
+-Also it has control capabilities for the sequence-sequencer mechanism.
 -uvm_sequence_item is derived from the uvm_transaction class.
--It supports all methods like copy, compare, clone, print, etc as discussed in the UVM object section.  
+-It supports all methods like print ,copy, clone, compare etc as discussed in the UVM object section.  
 
-//uvm_sequence_item example Sample code:
+////////////////////////////////////////////////  
+  uvm_sequence_item example Sample code
+///////////////////////////////////////////////  
   
 class my_seq_item extends uvm_seqeunce_item;
   rand int        value;
@@ -25,5 +29,3 @@ class my_seq_item extends uvm_seqeunce_item;
   endfunction
   
 endclass  :my_seq_item
-
-  
