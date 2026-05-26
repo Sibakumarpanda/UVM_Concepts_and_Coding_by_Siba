@@ -1,4 +1,6 @@
-UVM TB Top: (Its Job and Functionality)
+////////////////////////////////////////////////////
+   UVM TB Top: (Its Job and Functionality)
+////////////////////////////////////////////////////
 
 -The testbench top is a static container that has an instantiation of DUT and interfaces. 
 -The interface instance connects with DUT signals in the testbench top. 
@@ -6,11 +8,13 @@ UVM TB Top: (Its Job and Functionality)
 -It is also passed to the interface handle. 
 -An interface is stored in the uvm_config_db using the set method and it can be retrieved down the hierarchy using the get method. 
 -UVM testbench top is also used to trigger a test using run_test() call.
-
-// Code Snippet example 
+  
+//////////////////////////////////////////
+   Code Snippet example 
+//////////////////////////////////////////  
 `include "uvm_macros.svh"
 import uvm_pkg::*;
-
+  
 module tb_top;
   bit clk;
   bit reset;
@@ -42,4 +46,4 @@ module tb_top;
   initial begin
     run_test("base_test");
   end
-endmodule  
+endmodule  :tb_top
