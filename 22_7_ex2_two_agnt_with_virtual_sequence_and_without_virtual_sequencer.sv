@@ -1,5 +1,6 @@
-//Example2: Example of Two agent uses with using Virtual Sequence and without Virtual Sequencer concept
-
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+  Example2:  Example of Two agent uses with using Virtual Sequence and without Virtual Sequencer concept
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Sequence item class - seq_item
 class seq_item extends uvm_sequence_item;
   core_type core;
