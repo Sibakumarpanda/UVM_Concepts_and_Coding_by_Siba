@@ -1,5 +1,6 @@
-Example1: Using get_next_item and item_done methods in the driver (Without RSP packet )
-
+//////////////////////////////////////////////////////////////////////////////////////////////
+  Example1: Using get_next_item and item_done methods in the driver (Without RSP packet )
+//////////////////////////////////////////////////////////////////////////////////////////////
 //-------------------------------------------------------------------------
 ///////////////////////////////////////////////////////////////////////////////
 //(c) Copyright Siba Kumar Panda, All rights reserved
@@ -11,7 +12,6 @@ Example1: Using get_next_item and item_done methods in the driver (Without RSP p
 
 `ifndef GUARD_MY_SEQ_ITEM_SV
 `define GUARD_MY_SEQ_ITEM_SV
-
 class my_seq_item extends uvm_sequence_item;
   
   rand bit[15:0] addr;
@@ -34,8 +34,6 @@ endclass :my_seq_item
 // Purpose :  my_sequencer file 
 // Author  :  Siba Kumar Panda
 ///////////////////////////////////////////////////////////////////////////////
-
-
 `ifndef GUARD_MY_SEQUENCER_SV
 `define GUARD_MY_SEQUENCER_SV
 
@@ -57,7 +55,6 @@ endclass :my_sequencer
 // Purpose :  Driver file 
 // Author  :  Siba Kumar Panda
 ///////////////////////////////////////////////////////////////////////////////
-
 `ifndef GUARD_MY_DRIVER_SV
 `define GUARD_MY_DRIVER_SV
 
@@ -94,10 +91,8 @@ endclass :my_driver
 // Purpose :  Agent file 
 // Author  :  Siba Kumar Panda
 ///////////////////////////////////////////////////////////////////////////////
-
 `ifndef GUARD_MY_AGENT_SV
 `define GUARD_MY_AGENT_SV
-
 class my_agent extends uvm_agent;
   
   my_driver drv;
