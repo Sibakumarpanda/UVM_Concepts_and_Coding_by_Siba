@@ -1,4 +1,6 @@
-Example2: Using get_next_item and item_done methods in the driver (RSP packet)
+///////////////////////////////////////////////////////////////////////////////////////
+  Example2: Using get_next_item and item_done methods in the driver (RSP packet)
+//////////////////////////////////////////////////////////////////////////////////////
 
 //-------------------------------------------------------------------------
 ///////////////////////////////////////////////////////////////////////////////
@@ -11,10 +13,8 @@ Example2: Using get_next_item and item_done methods in the driver (RSP packet)
 `ifndef GUARD_MY_SEQ_ITEM_SV
 `define GUARD_MY_SEQ_ITEM_SV
 
-class my_seq_item extends uvm_sequence_item;
-  
-  `uvm_object_utils(my_seq_item)
-  
+class my_seq_item extends uvm_sequence_item;  
+  `uvm_object_utils(my_seq_item)  
   rand bit[15:0] addr;
   rand bit[15:0] data;
   bit rsp_b;
