@@ -1,5 +1,6 @@
-UVM Sequencer Understanding:
-
+////////////////////////////////////////////
+   UVM Sequencer Understanding
+////////////////////////////////////////////
 -The sequencer is a mediator who establishes a connection between sequence and driver.
 -Ultimately, it passes transactions or sequence items to the driver so that they can be driven to the DUT.
 -uvm_sequencer class declaration: class uvm_sequencer #( type REQ  = uvm_sequence_item, RSP = REQ ) extends uvm_sequencer_param_base #(REQ, RSP)  
