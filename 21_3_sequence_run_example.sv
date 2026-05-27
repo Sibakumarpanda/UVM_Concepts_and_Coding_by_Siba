@@ -1,3 +1,6 @@
+////////////////////////////////////////////////
+   Example to run a Sequence
+///////////////////////////////////////////////
 //Sequence item or Transaction class
 class seq_item extends uvm_sequence_item;
   rand int a;
