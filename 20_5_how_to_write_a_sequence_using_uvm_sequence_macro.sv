@@ -1,9 +1,13 @@
-Writting Sequence using UVM Sequence Macros:
--Based on the requirement few macros can be used while writing a sequence. (Using macros like `uvm_do , `uvm_create, `uvm_send etc)
+///////////////////////////////////////////////////////////////////////////////
+   Writting Sequence using UVM Sequence Macros
+   Based on the requirement few macros can be used while writing a sequence
+     [Using macros like `uvm_do , `uvm_create, `uvm_send etc]
+/////////////////////////////////////////////////////////////////////////////////
 
-Macros                                                      Description
-  
-  `uvm_do (seq/item)                                         On calling this macro, create, randomize and send to the driver will be executed  
+  --------------------------------------------------------------------------------------------------------------------------------------------------   
+   Macros                                                    Description
+  --------------------------------------------------------------------------------------------------------------------------------------------------
+  `uvm_do (seq/item)                                       On calling this macro, It will create, randomize and send to the driver will be executed  
 
   `uvm_do_with (seq/item, constraints)                       It is the same as `uvm_do but additionally, constraints can be defined while randomizing               
 
@@ -28,13 +32,13 @@ Macros                                                      Description
 
   Note:
   - `uvm_do macro call does not invoke pre_body and post_body methods
-  -A sequence macro call is not recommended to use because it takes more time to execute on the simulator which results in slow simulation.  
+  -  A sequence macro call is not recommended to use because it takes more time to execute on the simulator which results in slow simulation.  
 
-
-UVM Sequence macro examples :
-
-// 1. Using `uvm_do sample example :
-class my_sequence extends uvm_sequence #(seq_item);
+////////////////////////////////////////////////////////////
+   UVM Sequence macro examples 
+   Example1: Using `uvm_do sample example 
+////////////////////////////////////////////////////////////    
+class my_sequence extends uvm_sequence #(my_seq_item);
   `uvm_object_utils(my_sequence)
   
    function new (string name = "my_sequence")
@@ -42,11 +46,11 @@ class my_sequence extends uvm_sequence #(seq_item);
    endfunction
 
    task body();
-     `uvm_do(req);
+     `uvm_do(req);   //It will create, randomize and send to the driver
    endtask
 endclass :my_sequence
 
-class my_sequence extends uvm_sequence #(seq_item);
+class my_sequence extends uvm_sequence #(my_seq_item);
   `uvm_object_utils(my_sequence)
   
    function new (string name = "my_sequence")
@@ -58,9 +62,11 @@ class my_sequence extends uvm_sequence #(seq_item);
      `uvm_do(seq2); // calling seq2
    endtask
 endclass :my_sequence 
-
-//2. Using `uvm_do_with sample example :
-class my_sequence extends uvm_sequence #(seq_item);
+////////////////////////////////////////////////////////////
+   UVM Sequence macro examples 
+   Example2: Using `uvm_do_with sample example 
+//////////////////////////////////////////////////////////// 
+class my_sequence extends uvm_sequence #(my_seq_item);
   `uvm_object_utils(my_sequence)
   
    function new (string name = "my_sequence")
@@ -68,12 +74,15 @@ class my_sequence extends uvm_sequence #(seq_item);
    endfunction
 
    task body();
-     `uvm_do_with(req, {req.<variable> == 0;}); // any constraint
+     `uvm_do_with(req, {req.<variable> == 0;}); //It will create, randomize with constraint and send to the driver
    endtask
 endclass : my_sequence  
-
-//3. Using `uvm_create and `uvm_send Sample example :
-class my_sequence extends uvm_sequence #(seq_item);
+    
+///////////////////////////////////////////////////////////////
+   UVM Sequence macro examples 
+   Example3: Using `uvm_create and `uvm_send Sample example 
+////////////////////////////////////////////////////////////// 
+class my_sequence extends uvm_sequence #(my_seq_item);
   `uvm_object_utils(my_sequence)
   
    function new (string name = "my_sequence")
@@ -81,14 +90,17 @@ class my_sequence extends uvm_sequence #(seq_item);
    endfunction
 
    task body();
-     `uvm_create(req);
-      assert(req.randomize());
-     `uvm_send(req);
+     `uvm_create(req);           //It will create the request/seq_item
+     assert(req.randomize());    // randomize it
+     `uvm_send(req);            //It will send to the driver
    endtask
 endclass :my_sequence  
-
-//4. Using `uvm_rand_send Sample example :
-class my_sequence extends uvm_sequence #(seq_item);
+    
+///////////////////////////////////////////////////////////////
+   UVM Sequence macro examples 
+   Example4: Using `uvm_rand_send Sample example 
+////////////////////////////////////////////////////////////// 
+class my_sequence extends uvm_sequence #(my_seq_item);
   `uvm_object_utils(my_sequence)
   
    function new (string name = "my_sequence")
@@ -96,7 +108,7 @@ class my_sequence extends uvm_sequence #(seq_item);
    endfunction
 
    task body();
-     `uvm_create(req);
-     `uvm_rand_send(req);
+     `uvm_create(req);    //It will create the request/seq_item
+     `uvm_rand_send(req); //It will randomize and send to the driver
    endtask
 endclass :my_sequence    
