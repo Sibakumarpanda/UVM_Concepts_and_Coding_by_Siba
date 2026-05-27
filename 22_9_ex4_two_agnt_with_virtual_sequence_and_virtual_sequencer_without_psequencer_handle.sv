@@ -1,8 +1,9 @@
-//Example4: Example of Two agent which uses with Virtual Sequence and Virtual Sequencer with out using p_sequencer handle concept
-//Example of with Virtual Sequnce and virtual sequencer (without p_sequencer)
-//Attempt was made to use code without p_sequencer handle in virtual sequence.
-//Instead of starting seq_A and seq_B using p_sequencer.Tried accessing v_seqr using env handle
-
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+   Example4: Example of Two agent which uses with Virtual Sequence and Virtual Sequencer with out using p_sequencer handle concept
+   Example of with Virtual Sequnce and virtual sequencer (without p_sequencer)
+   Attempt was made to use code without p_sequencer handle in virtual sequence.
+   Instead of starting seq_A and seq_B using p_sequencer.Tried accessing v_seqr using env handle
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Sequence Item class - seq_item
 class seq_item extends uvm_sequence_item;
   core_type core;
