@@ -39,7 +39,7 @@ Steps to use :
 - get_response (rsp)                                                                                                                                 
 
 //Sample code using Approach A
-class my_sequence extends uvm_sequence #(seq_item);
+  class my_sequence extends uvm_sequence #(my_seq_item);
   `uvm_object_utils(my_sequence)
   
    function new (string name = "my_sequence")
@@ -47,13 +47,13 @@ class my_sequence extends uvm_sequence #(seq_item);
    endfunction :new
 
    task body();
-     req = seq_item::type_id::create("req");
+     req = my_seq_item::type_id::create("req");
      wait_for_grant();
      assert(req.randomize());
      send_request(req);
      wait_for_item_done();
      get_respose(rsp);
-   endtask
+   endtask :body
 endclass :my_sequence
   
 /////////////////////////////////////////////////////////////////////////////////////////////////
@@ -76,19 +76,19 @@ endclass :my_sequence
  - finish_item(req)
     
 //Sample code using Approach B:
-class my_sequence extends uvm_sequence #(seq_item);
+class my_sequence extends uvm_sequence #(my_seq_item);
   `uvm_object_utils(my_sequence)
   
    function new (string name = "my_sequence")
      super.new(name);
-   endfunction
+   endfunction :new
 
    task body();
-     req = seq_item::type_id::create("req");
+     req = my_seq_item::type_id::create("req");
      start_item(req);
      assert(req.randomize());
      finish_item(req);
-   endtask
+   endtask :body
 endclass  :my_sequence 
 
 NOTE:    
