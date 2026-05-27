@@ -3,9 +3,9 @@
    What is m_sequencer and p_sequencer in UVM ???
 //////////////////////////////////////////////////////////////
 
-/////////////////////
-    m_sequencer
-////////////////////
+///////////////////////////////////////////////////////////////////////
+  m_sequencer (default sequencer handle present inside the sequence )
+////////////////////////////////////////////////////////////////////////
 - m_sequencer is a handle available by default in a sequence.
 - Hence we can say ,default sequencer handle is called as m_sequencer .
 - m_sequencer has a type of uvm_sequencer_base.
@@ -16,9 +16,9 @@
 // Sample code snippet 
 seq.start(env.agnt.seqr) ; // Here seqr is the m_sequencer 
 
-//////////////////////  
-   p_sequencer
-/////////////////////  
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+   p_sequencer (Typically a virtual sequencer, its not present by default , we need to define it using macro  )
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////  
 -All sequences have a m_sequencer handle but they do not have a p_sequencer handle.
 -p_sequencer is not defined automatically. 
 -It is defined using macro:    `uvm_declare_p_sequencer(sequencer_name) 
