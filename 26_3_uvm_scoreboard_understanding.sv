@@ -63,21 +63,25 @@ class my_scoreboard extends uvm_scoreboard;
   endtask
   
 endclass :my_scoreboard 
-
-UVM Scoreboad types :
+   
+////////////////////////////////
+  UVM Scoreboad types 
+////////////////////////////////   
 -Depends on design functionality scoreboards can be implemented in two ways.
-   1.In-order scoreboard
-   2.Out-of-order scoreboard  
-  
-1. In-order scoreboard :
+   1.In-order scoreboard      (Input stimulus order =  Design output order)
+   2.Out-of-order scoreboard  (Input stimulus order !=  Design output order)
+
+//////////////////////////////////////////////////////////////////////////////////   
+  1. In-order scoreboard : (Input stimulus order =  Design output order)
+/////////////////////////////////////////////////////////////////////////////////   
 -The in-order scoreboard is useful for the design whose output order is the same as driven stimuli.
 -The comparator will compare the expected and actual output streams in the same order. 
 -They will arrive independently. Hence, the evaluation must block until both expected and actual transactions are present.  
 -To implement such scoreboards, an easier way would be to implement TLM analysis FIFOs. 
 -For more details visit the TLM analysis FIFO section. 
 -In the below example, there are two monitors whose analysis port is connected to the scoreboard to provide input and output transactions.
-// Sample code Snippet for Inorder Scoreboard
-  
+   
+// Sample code Snippet for Inorder Scoreboard 
 class inorder_sb extends uvm_scoreboard;
   `uvm_component_utils(inorder_sb)
   
@@ -120,12 +124,14 @@ class inorder_sb extends uvm_scoreboard;
     ...
   endtask
 endclass :inorder_sb
-  
-2. Out-of-order scoreboard :
-  
+
+//////////////////////////////////////////////////////////////////////////////   
+  2. Out-of-order scoreboard (Input stimulus order !=  Design output order)
+//////////////////////////////////////////////////////////////////////////////    
 -The out-of-order scoreboard is useful for the design whose output order is different from driven input stimuli. 
--Based on the input stimuli reference model will generate the expected outcome of DUT and the actual output is expected to come in any order. 
--So, it is required to store such unmatched transactions generated from the input stimulus until the corresponding output has been received from the DUT to be compared. 
+-Based on the input stimuli reference model will generate expected outcome of DUT and the actual output is expected to come in any order. 
+-So, it is required to store such unmatched transactions generated from the input stimulus until the corresponding output 
+ has been received from the DUT to be compared. 
 -To store such transactions, an associative array is widely used. 
 -Based on index value, transactions are stored in the expected and actual associative arrays. 
 -The entries from associative arrays are deleted when comparison happens for the matched array index.
@@ -181,7 +187,7 @@ class out_of_order_sb extends uvm_scoreboard;
         begin
           out_fifo.get(out_txn);
           actual_out_array[out_txn.id] = out_txn;
-          actaul_out_q.push_back(out_txn.id);
+          actual_out_q.push_back(out_txn.id);
         end
       join
       compare_data();
