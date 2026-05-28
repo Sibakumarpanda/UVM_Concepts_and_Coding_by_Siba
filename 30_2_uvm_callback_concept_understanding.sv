@@ -1,10 +1,13 @@
-UVM Callback Understandng:
+///////////////////////////////////
+   UVM Callback Understanding
+//////////////////////////////////
 -The callbacks are used to alter the behavior of the component or object without modifying its code. 
 -Refer System Verilog callback to have a better understanding. A simple example of callbacks can be the phasing mechanism in UVM.
 
 UVM Callback Usage:
 -Allows plug-and-play mechanism to establish a reusable verification environment.
--Based on the hook method call, the user-defined code is executed instead of the empty callback method. This brings various flavors of the component or object.
+-Based on the hook method call, the user-defined code is executed instead of the empty callback method. 
+-This brings various flavors of the component or object.
 -Callbacks can be used to introduce errors or delays in the components.
 
 UVM Callback Macros with description:
@@ -25,14 +28,16 @@ Description:
 
 `uvm_do_obj_callbacks(T, CB, OBJ, METHOD)
 Description:
--It is similar to `uvm_do_callbacks macro, but it has an additional OBJ argument to specify external object associated with the callback.
+-It is similar to `uvm_do_callbacks macro, but it has an additional OBJ argument to specify external object 
+ associated with the callback.
 -Example: For applying callback in a sequence, OBJ could be specified as parent sequence or sequencer. 
 
 UVM Callback Classes with description :
 -The UVM callback provides a set of classes for its implementation.
-  uvm_callbacks     - provides a base class for callback implementation and is typically used for modifying component behavior without modifying the component class.
-  uvm_callback_iter -It is an iterator class for iterating over callback queues of a specific type.
-  uvm_callback      -Provides a base class for user-defined callback classes.
+  uvm_callbacks      - provides a base class for callback implementation and is typically used for 
+                       modifying component behavior without modifying the component class.
+  uvm_callback_iter  -It is an iterator class for iterating over callback queues of a specific type.
+  uvm_callback       -Provides a base class for user-defined callback classes.
 
 UVM Callback Methods with description :
  -The uvm_callback methods can be called using a scope resolution operator as they are static methods.
@@ -56,10 +61,12 @@ Steps to implement uvm_callback :
    virtual task modify_pkt();
    endtask   
 3. Implement a callback method in the class which is extended from the above user-defined class.
-4. Register user-defined callback method using `uvm_register_cb in the component or object where callbacks are called (In the below example, it is registered in the driver component).
+4. Register user-defined callback method using `uvm_register_cb in the component or object where callbacks 
+   are called (In the below example, it is registered in the driver component).
    `uvm_register_cb(driver,driver_cb)
    If `uvm_register_cb is not used then a warning is issued as like below.
-   Example: UVM_WARNING @ 0: reporter [CBUNREG] Callback drvd_cb cannot be registered with object (*) because callback type derived_cb is not registered with object type uvm_object
+   Example: UVM_WARNING @ 0: reporter [CBUNREG] Callback drvd_cb cannot be registered with object (*) because callback 
+   type derived_cb is not registered with object type uvm_object
 5. Place callback hook i.e. calling callback method in the required component or object using `uvm_do_callbacks macro.
    `uvm_do_callbacks(driver,driver_cb,modify_pkt());
   
@@ -92,7 +99,8 @@ UVM callback in uvm_sequence :
 -The steps mentioned to implement callback in uvm_sequence are the same as above.
 -Note that `uvm_do_obj_callbacks macro is used as a callback hook with associated sequencer.
 -`uvm_do_obj_callbacks(sequencer,seq_cb,l_seqr,modify_pkt(req));
--Where l_seqr handle points to object handle of sequencer class. Instead of this approach, p_seqeuncer can also be used here and p_sequencer must be declared using `uvm_declare_p_sequencer macro.
+-Where l_seqr handle points to object handle of sequencer class. Instead of this approach, p_seqeuncer can 
+ also be used here and p_sequencer must be declared using `uvm_declare_p_sequencer macro.
 -`uvm_do_obj_callbacks(sequencer,seq_cb,p_sequencer,modify_pkt(req));
   
 Examples:
