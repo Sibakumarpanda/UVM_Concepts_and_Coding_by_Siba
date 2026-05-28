@@ -1,10 +1,14 @@
-UVM Subscriber Understanding:
+/////////////////////////////////////
+  UVM Subscriber Understanding
+/////////////////////////////////////
 -The uvm_subscriber class provides an analysis export that connects with the analysis port. 
 -As the name suggests, it subscribes to the broadcaster i.e. analysis port to receive broadcasted transactions.
--Means, we can say monitor(analysis port),present inside agent  to subscriber(analysis export) connection will be done . Basically this subscribe class is used for Functional covergae purpose.
+-Means, we can say monitor( having analysis port),present inside agent to subscriber(analysis export) connection will be done . 
+-Basically this subscribe class is used for Functional covergae purpose.
 -The uvm_subscriber is derived from uvm_component and adds up the analysis_export port in the class.
 -The user-defined subscriber is derived from uvm_subscriber that must define the write method.
--A write method is a pure virtual method that is declared in the uvm_subscriber class. The analysis_export provides access to the write method by outside components.
+-A write method is a pure virtual method that is declared in the uvm_subscriber class. 
+-The analysis_export provides access to the write method by outside components.
 -Since uvm_subscriber has built-in analysis_export, it is generally used to implement a functional coverage monitor.
 -The below is the uvm_scriber class defination.
   
@@ -21,10 +25,12 @@ virtual class uvm_subscriber #(type T=int) extends uvm_component;
   pure virtual function void write(T t);
     
 endclass
-    
--In the below code, a functional coverage monitor is created by extending the uvm_subscriber class.  
-  
- //Sample code
+
+////////////////////////////////////////////////////////////////////
+  Sample code snippet for Functional coverage class   
+  In the below code, a functional coverage monitor is created by 
+  extending the uvm_subscriber class.  
+/////////////////////////////////////////////////////////////////////  
 class func_cov extends uvm_subscriber #(seq_item);
   covergroup cg;
   ...
