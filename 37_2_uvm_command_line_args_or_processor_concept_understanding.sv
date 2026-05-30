@@ -1,6 +1,9 @@
-UVM Command Line Processor/Arguments understanding (CLP/CLA):
+///////////////////////////////////////////////////////////////////////
+  UVM Command Line Processor/Arguments understanding (CLP/CLA):
+//////////////////////////////////////////////////////////////////////
 
--With increasing complexity in the design and verification environment, the compilation time has also increased which also affects the verification timeline. 
+-With increasing complexity in the design and verification environment, the compilation time has also increased 
+ which also affects the verification timeline. 
 -Hence, there is a requirement to optimize it which can consider new configurations or parameters without forcing a recompilation. 
 -We have seen how a function or task behaves based on passing arguments. 
 -Similarly, UVM provides an interface to provide command-line arguments that provide flexibility to avoid testbench recompilation with the help 
@@ -9,7 +12,9 @@ UVM Command Line Processor/Arguments understanding (CLP/CLA):
 -The uvm_cmdline_processor class provides setting various UVM variables from the command line such as components 
  verbosity and configurations for integral types and strings.
 
-uvm_cmdline_processor Methods :
+////////////////////////////////////  
+ uvm_cmdline_processor Methods 
+////////////////////////////////////  
 -Few methods of the command line processor and built-in command-line arguments are discussed here.
 
 Type                             Methods                                       Description  
@@ -24,8 +29,9 @@ function                         get _uvmargs                                  R
 
 function                         get_args_value                                Finds the first argument which matches the ‘match’ argument and 
                                                                                returns the suffix of the argument   
-
-Built-in command line arguments in UVM: 
+/////////////////////////////////////////////////
+  Built-in command line arguments in UVM
+////////////////////////////////////////////////  
    
 Command line arguments                         Description  
    
@@ -35,8 +41,9 @@ Command line arguments                         Description
 
 +UVM_TIMEOUT                                   +UVM_TIMEOUT= allows the user to change the global timeout of the UVM framework  
 
-System functions for command line arguments in SystemVerilog :
-  
+/////////////////////////////////////////////////////////////////////// 
+  System functions for command line arguments in SystemVerilog 
+///////////////////////////////////////////////////////////////////////  
 -Similar to uvm_cmdline_processor  class methods, System Verilog also provides some system functions.
 
 System Functions                             Description
