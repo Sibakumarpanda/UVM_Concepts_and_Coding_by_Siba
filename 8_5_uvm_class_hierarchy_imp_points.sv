@@ -107,7 +107,8 @@ Factory:
 ///////////////  
 -The uvm_root class is an implicit top-level class for all UVM components. 
 -It also controls the phase mechanism. 
--The UVM automatically creates a single instance of the uvm_root class that is accessed by the uvm_top variable (global variable having uvm_pkg scope).
+-The UVM automatically creates a single instance of the uvm_root class that is accessed by the uvm_top variable
+  (global variable having uvm_pkg scope).
 -Any component having a parent specified as null becomes a derived class of uvm_top.
 -It Manages phasing for all components.
 -It searches for the component based on its hierarchical name using find and find_all methods.
@@ -118,11 +119,13 @@ Factory:
 -Example: uvm_report_warning, uvm_report_error etc
   
 ////////////////////////////////////////////////////////
-   Difference between uvm_component and uvm_object
+   Difference between uvm_object and uvm_component
 /////////////////////////////////////////////////////////  
--UVM components are non-transient whereas UVM objects are transients.
--UVM components are static in nature and exist throughout the simulation. UVM objects are dynamic in nature that has a limited lifetime in the simulation.
--`uvm_component_utils and `uvm_object_utils macros are used for factory registration for UVM components and objects respectively(They can not be used interchangeably) 
+-UVM objects are transients where as UVM components are non-transient.
+-UVM objects are dynamic in nature that has a limited lifetime in the simulation.
+-UVM components are static in nature and exist throughout the simulation. 
+-`uvm_component_utils and `uvm_object_utils macros are used for factory registration for UVM components and objects respectively
+  (They can not be used interchangeably) 
 -Default constructor for uvm_component has two arguments: name and parent
 -Default constructor for uvm_object has a single argument: name
 -These are hardcoded arguments for the constructor and the user is not allowed to change arguments along with factory usage  
@@ -130,7 +133,9 @@ Factory:
 //////////////////////////////////////////////////////////////////////////////  
   Difference between uvm_object, uvm_transaction and uvm_sequence_item
 //////////////////////////////////////////////////////////////////////////////
--The uvm_transaction class is inherited from uvm_object that adds additional information of a timing, notification events and recording interface.
--The uvm_sequence_item class is derived from the uvm_transaction class that adds basic functionality for sequence and sequence items like get_sequence_id, set_sequencer, get_sequence etc.
+-The uvm_transaction class is inherited from uvm_object that adds additional information of a timing, notification events 
+  and recording interface.
+-The uvm_sequence_item class is derived from the uvm_transaction class that adds basic functionality for sequence 
+  and sequence items like get_sequence_id, set_sequencer, get_sequence etc.
 -It is important to note that uvm_transaction usage is deprecated as a base class for user-defined transactions. 
 -Hence, the uvm_sequence_item class shall be used as a base class for user-defined transactions.
