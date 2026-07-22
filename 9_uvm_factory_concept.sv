@@ -117,10 +117,12 @@ endclass  :my_env
 //////////////////////////////////////////////////////
    Summary : Why is factory registration required?
 ///////////////////////////////////////////////////////    
--In UVM based testbench, it is valid to use a new() function to create class objects, but factory registration has its benefits.
--Overriding :The UVM factory allows an object of one type to be overridden with an object of its derived type without changing the testbench structure. 
+-In UVM based testbench, it is valid to use a new() function to create class objects, 
+  but factory registration has its benefits.
+-Overriding :The UVM factory allows an object of one type to be overridden with an object of its derived type 
+              without changing the testbench structure. 
 -This is known as the UVM factory override mechanism. This is applicable for uvm objects and components.
 -Overally , we can remember the main advantages of UVM Factoy mechanism as:
    1. Factory Registartion
    2. Creation of oject and component with type_id create () method
-   3. Overriding: Object of one type can be overrided qith object of its derived type (type and inst override)
+   3. Overriding: Object of one type can be overrided with object of its derived type (type and inst override)
