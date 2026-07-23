@@ -33,13 +33,14 @@ The phases are an important concept in uvm that applies to all TB components.
 -It is usually called in the initial block from the top-level testbench module. 
 -The run_test() method call to construct the UVM environment root component and then initiates the UVM phasing mechanism.
 
-1. Build phases: To construct a testbench, it is necessary to build component objects first and then are connected to form a hierarchy, The build phase category consists
+1. Build phases: To construct a testbench, it is necessary to build component objects first and then are connected to form a hierarchy.
+   The build phase category consists
    a. build_phase
    b. connect_phase
    c. end_of_elaboration_phase  
 
  Phase Name       |        Description                                    |          Execution approach           |               Phase Type     
- build_phase               Build or create testbench component                        Top to down                                  Function
+ build_phase               Build or create testbench component                        Top to Bottom                                Function
   
  connect_phase             Connect different testbench component                      Bottom to top                                Function
                            using the TLM port mechanism     
@@ -113,19 +114,19 @@ The phases are an important concept in uvm that applies to all TB components.
                     They are implemented as functions and work from the bottom to the top of the component hierarchy. 
                     The extract, check and report phase may be used by analysis components.  
 
- Phase Name                   |     Description                                                  |          Execution approach           |               Phase Type    
+ Phase Name                   |     Description                                                  |          Execution approach           |    Phase Type    
 
- extract                            Used to retrieve and process the information from functional             Bottom to top                                Function
+ extract                            Used to retrieve and process the information from functional             Bottom to top                    Function
                                     coverage monitors and scoreboards. 
                                     This phase may also calculate any statistical information 
                                     that will be used by report_phase.
 
- check                               Checks DUT behavior and identity for any error that occurred            Bottom to top                                Function
+ check                               Checks DUT behavior and identity for any error that occurred            Bottom to top                    Function
                                      during the execution of the testbench.
 
- report                              Used to display simulation results.                                     Bottom to top                                Function
+ report                              Used to display simulation results.                                     Bottom to top                    Function
                                      It can also write results to the file.                                   
 
- final                               Used to complete any outstanding actions that are yet to be             Bottom to top                                Function
+ final                               Used to complete any outstanding actions that are yet to be             Bottom to top                    Function
                                      completed in the testbench.  
      
