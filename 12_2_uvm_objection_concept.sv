@@ -16,7 +16,8 @@
 -They can be used in all UVM phases.
 -It allows proceeding for the “End of test”. 
 -The simulation time-consuming activity happens in the run phase. 
--If all objections dropped for run phases, it means simulation activity is completed. Then , The test can be ended after executing the next phase that is clean up phases.
+-If all objections dropped for run phases, it means simulation activity is completed. 
+ Then , The test can be ended after executing the next phase that is clean up phases.
 -Objections are generally used in components and sequences.
 -Other objects can also use them but they must use a component or sequence object context.
   
@@ -39,10 +40,10 @@ endtask
   Methods in uvm_objection :
 /////////////////////////////////////  
   
-Methods                                                                                                   Description  
-raise_objection (uvm_object obj = null, string description = ” “, int count = 1)                          Raises number of objections for corresponding object with default count = 1  
-drop_objection (uvm_object obj = null, string description = ” “, int count = 1)                           Drops number of objections for corresponding object with default count = 1
-  set_drain_time (uvm_object obj=null, time drain)                                                         Sets drain time for corresponding objects
+Methods                                                                               Description  
+raise_objection (uvm_object obj = null, string description = ” “, int count = 1)      Raises number of objections for corresponding object with default count = 1  
+drop_objection (uvm_object obj = null, string description = ” “, int count = 1)       Drops number of objections for corresponding object with default count = 1
+set_drain_time (uvm_object obj=null, time drain)                                      Sets drain time for corresponding objects
 
 Where , Drain Time: The amount of wait time between all objections has been dropped and calling all_dropped() callback is called drain time.
     
@@ -54,7 +55,8 @@ raised                                                                    Called
 dropped                                                                   Called when an objection is dropped for this component or its derived classes.
 all_dropped                                                               Called when all objections are dropped for this component and its derived classes.
     
-UVM Objections Examples: (Below examples helps to understand intention and it provide clarity for the objection mechanism.Not the full code containing sequnce/sequencer/driver mechanism)
+UVM Objections Examples: (Below examples helps to understand intention and it provide clarity for the objection mechanism.
+Not the full code containing sequnce/sequencer/driver mechanism)
   1. An objection can be used in the test class component (In the run_phase, by using phase.raise_objection() and phase.drop_objection()  )
   2. An objection can be used in the sequence class (Either in body tasks or pre_body/ post_body tasks) as below
      a. With use of starting_phase.raise_objection(this); and starting_phase.drop_objection(this);  
