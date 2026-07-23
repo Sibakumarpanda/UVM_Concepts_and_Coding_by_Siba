@@ -2,20 +2,28 @@
    UVM Phases Concept
 ///////////////////////////////////////
 Why are phases introduced for UVM based System Verilog testbench but not for Verilog-based testbench ???
-- All components are static in Verilog-based testbench whereas System Verilog introduced OOP (Object Oriented Programming) feature in the testbench,concept of class which is dynamic in nature. 
+- All components are static in Verilog-based testbench whereas System Verilog introduced OOP (Object Oriented Programming) feature in the testbench,
+  concept of class which is dynamic in nature. 
 - In Verilog, as modules are static, users don’t have to care about their creation as they would have already created at the beginning of the simulation. 
 - But , In the case of UVM based System Verilog testbench, class objects can be created at any time during the simulation based on the requirement. 
-- Hence, it is required to have proper synchronization to avoid objects/components being called before they are created, hence its important to say that UVM phasing mechanism serves the purpose of synchronization.
+- Hence, it is required to have proper synchronization to avoid objects/components being called before they are created, 
+  So, its important to say that UVM phasing mechanism serves the purpose of synchronization.
   
 The phases are an important concept in uvm that applies to all TB components.
-- Each testbench component is derived from uvm_component that has predefined phases. They are represented as callback methods. Hence, the user may implement these callbacks.
-- Each component can not move to the next phase unless the current phase execution is completed for all the components. This provides proper synchronization between all the components.
+- Each testbench component is derived from uvm_component that has predefined phases. 
+- They are represented as callback methods. Hence, the user may implement these callbacks.
+- Each component can not move to the next phase unless the current phase execution is completed for all the components. 
+- This provides proper synchronization between all the components.
 - UVM phases are executed in a certain order and all are virtual methods.
-- Few phases that consume simulation time for execution are implemented as tasks and other phases that do not consume any simulation time are implemented as functions.
+- The phases that consume simulation time for execution are implemented as tasks 
+- The other phases that do not consume any simulation time are implemented as functions.
 - Main categories in UVM phases.
-  1. Build phases: Used to configure or construct the testbench. (They are build_phase,connect_phase, end_of_elaboration_phase)
-  2. Run-time phases: Time-consuming testbench activity like running the test case. (They are start_of_simulation_phase,run_phase and sub phases of run_phase like reset , configure , main, shutdown)
-  3. Clean up phases: Collect and report the results of the simulation. (extract_phase, check_phase, report_phase, final_phase)
+  1. Build phases: Used to configure or construct the testbench. 
+     (They are build_phase,connect_phase, end_of_elaboration_phase)
+  2. Run-time phases: Time-consuming testbench activity like running the test case. 
+     (They are start_of_simulation_phase,run_phase and sub phases of run_phase like reset,configure , main, shutdown)
+  3. Clean up phases: Collect and report the results of the simulation. 
+     (extract_phase, check_phase, report_phase, final_phase)
 
 /////////////////////////////////////////////////
    How does UVM phase execution start?
