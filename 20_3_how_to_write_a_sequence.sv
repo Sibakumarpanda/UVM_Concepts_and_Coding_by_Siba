@@ -9,5 +9,5 @@
     b. Using start_item/finish_item methods.
     
 -Let’s discuss the macro-based approach in UVM sequence macro and existing methods approach in the uvm_sequence_base class methods section in below files 
-    https://github.com/Sibakumarpanda/UVM_Concepts_and_Coding_by_Siba/blob/main/20_how_to_write_a_sequence_using_uvm_sequence_macro.sv
-    https://github.com/Sibakumarpanda/UVM_Concepts_and_Coding_by_Siba/blob/main/20_how_to_write_a_sequence_using_uvm_sequence_base_methods.sv
+    https://github.com/Sibakumarpanda/UVM_Concepts_and_Coding_by_Siba/blob/main/20_5_how_to_write_a_sequence_using_uvm_sequence_macro.sv
+    https://github.com/Sibakumarpanda/UVM_Concepts_and_Coding_by_Siba/blob/main/20_4_how_to_write_a_sequence_using_uvm_sequence_base_methods.sv
