@@ -158,7 +158,8 @@ class out_of_order_sb extends uvm_scoreboard;
   txn actual_out_array[int];
 
   // Store idx in separate queues.
-  int expected_out_q[$], actaul_out_q[$];
+  int expected_out_q[$];
+  int actaul_out_q[$];
 
   function new (string name = "out_of_order_sb" , uvm_component parent = null) ;
     super.new(name, parent);
